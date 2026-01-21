@@ -1,0 +1,111 @@
+:root{
+  --bg:#ffffff;
+  --text:#111;
+  --muted:#666;
+  --card:#f6f6f6;
+  --border:#e7e7e7;
+  --radius:16px;
+}
+
+*{ box-sizing:border-box; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.75;
+}
+
+.wrap{
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 16px 64px;
+}
+
+.hero h1{
+  margin: 0 0 8px;
+  font-size: 28px;
+  letter-spacing: .2px;
+}
+.sub{
+  margin:0 0 18px;
+  color:var(--muted);
+}
+
+.section{ margin: 28px 0; }
+.h2{
+  font-size: 22px;
+  margin: 0 0 12px;
+}
+
+.main-img{
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  display:block;
+}
+
+.lead{ margin: 12px 0 0; font-size: 16px; }
+
+.countdown-box{
+  margin-top: 14px;
+  padding: 14px 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.label{ margin:0; color:var(--muted); font-size: 14px; }
+.countdown{
+  font-size: 20px;
+  font-weight: 800;
+  margin-top: 6px;
+}
+.note{ margin: 6px 0 0; color: var(--muted); font-size: 12px; }
+
+.grid{
+  display:grid;
+  gap: 14px;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 760px){
+  .grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .grid.links{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 12px;
+}
+.card img{
+  width:100%;
+  border-radius: calc(var(--radius) - 6px);
+  border: 1px solid var(--border);
+  display:block;
+}
+.card h3{ margin: 10px 0 6px; font-size: 18px; }
+.card p{ margin:0; }
+
+.linkcard{
+  display:block;
+  padding: 14px 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  text-decoration:none;
+  font-weight:700;
+}
+.linkcard:hover{ outline: 2px solid #0000001a; }
+
+.footer{
+  margin-top: 44px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 13px;
+}
+.small{ color: var(--muted); font-size: 12px; margin: 10px 0 0; }
