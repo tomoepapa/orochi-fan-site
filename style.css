@@ -1,111 +1,77 @@
-:root{
-  --bg:#ffffff;
-  --text:#111;
-  --muted:#666;
-  --card:#f6f6f6;
-  --border:#e7e7e7;
-  --radius:16px;
-}
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>オロチ（from CNP）ファンサイト</title>
 
-*{ box-sizing:border-box; }
-body{
-  margin:0;
-  font-family: system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.75;
-}
+  <!-- Google Fonts（リーリー寄り） -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap" rel="stylesheet">
 
-.wrap{
-  max-width: 860px;
-  margin: 0 auto;
-  padding: 28px 16px 64px;
-}
+  <link rel="stylesheet" href="style.css" />
+</head>
 
-.hero h1{
-  margin: 0 0 8px;
-  font-size: 28px;
-  letter-spacing: .2px;
-}
-.sub{
-  margin:0 0 18px;
-  color:var(--muted);
-}
+<body>
+  <header class="hero hero--full">
+    <div class="hero-badge">
+      オロチ <span>(from CNP)</span> ファンサイト
+    </div>
 
-.section{ margin: 28px 0; }
-.h2{
-  font-size: 22px;
-  margin: 0 0 12px;
-}
+    <h2 class="hero-title">
+      人気者じゃない方の、オマージュサイト
+    </h2>
 
-.main-img{
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  display:block;
-}
+    <img
+      class="hero-chara"
+      src="assets/orochi_main.png"
+      alt="オロチ"
+    />
+  </header>
 
-.lead{ margin: 12px 0 0; font-size: 16px; }
+  <main class="wrap">
 
-.countdown-box{
-  margin-top: 14px;
-  padding: 14px 16px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-}
-.label{ margin:0; color:var(--muted); font-size: 14px; }
-.countdown{
-  font-size: 20px;
-  font-weight: 800;
-  margin-top: 6px;
-}
-.note{ margin: 6px 0 0; color: var(--muted); font-size: 12px; }
+    <section class="section">
+      <p class="lead">
+        この、ふわっと縁起のよさそうな白ヘビ……だれ？
+      </p>
 
-.grid{
-  display:grid;
-  gap: 14px;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-}
+      <div class="countdown-box">
+        <p class="label">人気が出るまであと</p>
+        <div class="countdown">00 日 00 時間 00 分 00 秒</div>
+        <p class="note">※現在、進捗はありません。</p>
+      </div>
+    </section>
 
-@media (min-width: 760px){
-  .grid{ grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .grid.links{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
+    <section class="section">
+      <h2 class="h2">実はすごいヘビ、オロチの秘密</h2>
 
-.card{
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 12px;
-}
-.card img{
-  width:100%;
-  border-radius: calc(var(--radius) - 6px);
-  border: 1px solid var(--border);
-  display:block;
-}
-.card h3{ margin: 10px 0 6px; font-size: 18px; }
-.card p{ margin:0; }
+      <div class="grid">
+        <div class="card">
+          <img src="assets/secret_1.png" alt="">
+          <h3>FiNANCiEでミームトークンに！</h3>
+          <p>「開運オロチトークン」として、みんなで担いで育てるプロジェクトに。</p>
+        </div>
 
-.linkcard{
-  display:block;
-  padding: 14px 16px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  color: var(--text);
-  text-decoration:none;
-  font-weight:700;
-}
-.linkcard:hover{ outline: 2px solid #0000001a; }
+        <div class="card">
+          <img src="assets/secret_2.png" alt="">
+          <h3>コミュニティメンバーは2万人以上！</h3>
+          <p>母体コミュニティ（Ninja DAO）には、国内外からたくさんの仲間が集結。</p>
+        </div>
 
-.footer{
-  margin-top: 44px;
-  padding-top: 16px;
-  border-top: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 13px;
-}
-.small{ color: var(--muted); font-size: 12px; margin: 10px 0 0; }
+        <div class="card">
+          <img src="assets/secret_3.png" alt="">
+          <h3>頼れるパートナー</h3>
+          <p>
+            実は忍者の相棒として活躍中。<br>
+            口寄せの術で呼ばれて、<br>
+            いざという時はすごいかも！？
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
