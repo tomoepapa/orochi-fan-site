@@ -27,15 +27,12 @@ body{
   text-align:center;
   overflow:hidden;
 
-  /* ① 画像があればそれを使う */
-  background-image: url("assets/hero_bg.png");
-  background-size: cover;
-  background-position: center;
+  /* 背景は一括指定にして確実に出す */
+  background: url("./assets/hero_bg.png") center / cover no-repeat;
 
-  /* ② 画像が無い/読めない場合でもリーリーっぽい空気を出す保険 */
-  background-color:#f6f7ff;
-  background-blend-mode: overlay;
+  /* うっすら白をかけたい場合は blend じゃなく疑似要素でやる（後述） */
 }
+
 
 /* 画面いっぱいに */
 .hero{
@@ -174,3 +171,4 @@ body{
   .hero-topline{ font-size: 26px; margin-top: 88px; padding: 0 12px; }
   .hero-chara{ width: min(260px, 72vw); max-height: 320px; }
 }
+
