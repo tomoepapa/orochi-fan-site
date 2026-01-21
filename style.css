@@ -1,77 +1,149 @@
-<!doctype html>
-<html lang="ja">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>オロチ（from CNP）ファンサイト</title>
+:root{
+  --bg:#ffffff;
+  --text:#111;
+  --muted:#666;
+  --card:#fafafa;
+  --border:#e7e7e7;
+}
 
-  <!-- Google Fonts（リーリー寄り） -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap" rel="stylesheet">
+*{
+  box-sizing: border-box;
+}
 
-  <link rel="stylesheet" href="style.css" />
-</head>
+body{
+  margin: 0;
+  font-family: "M PLUS Rounded 1c",
+               system-ui,
+               -apple-system,
+               "Hiragino Kaku Gothic ProN",
+               "Noto Sans JP",
+               sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 15px;
+}
 
-<body>
-  <header class="hero hero--full">
-    <div class="hero-badge">
-      オロチ <span>(from CNP)</span> ファンサイト
-    </div>
+/* ===== ヒーロー（リーリー風） ===== */
 
-    <h2 class="hero-title">
-      人気者じゃない方の、オマージュサイト
-    </h2>
+.hero--full{
+  position: relative;
+  min-height: 520px;
+  background-image: url("assets/hero_bg.png");
+  background-size: cover;
+  background-position: center;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
 
-    <img
-      class="hero-chara"
-      src="assets/orochi_main.png"
-      alt="オロチ"
-    />
-  </header>
+.hero-badge{
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 10px 14px;
+  background: rgba(255,255,255,0.85);
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 15px;
+}
 
-  <main class="wrap">
+.hero-badge span{
+  color: #666;
+  font-weight: 600;
+}
 
-    <section class="section">
-      <p class="lead">
-        この、ふわっと縁起のよさそうな白ヘビ……だれ？
-      </p>
+.hero-title{
+  font-size: 34px;
+  font-weight: 800;
+  color: rgba(0,0,0,0.7);
+  margin-top: 40px;
+}
 
-      <div class="countdown-box">
-        <p class="label">人気が出るまであと</p>
-        <div class="countdown">00 日 00 時間 00 分 00 秒</div>
-        <p class="note">※現在、進捗はありません。</p>
-      </div>
-    </section>
+.hero-chara{
+  width: min(360px, 60vw);
+  filter: drop-shadow(0 16px 16px rgba(0,0,0,0.2));
+  animation: floaty 4.5s ease-in-out infinite;
+}
 
-    <section class="section">
-      <h2 class="h2">実はすごいヘビ、オロチの秘密</h2>
+@keyframes floaty{
+  0%{ transform: translateY(0); }
+  50%{ transform: translateY(-14px); }
+  100%{ transform: translateY(0); }
+}
 
-      <div class="grid">
-        <div class="card">
-          <img src="assets/secret_1.png" alt="">
-          <h3>FiNANCiEでミームトークンに！</h3>
-          <p>「開運オロチトークン」として、みんなで担いで育てるプロジェクトに。</p>
-        </div>
+/* ===== 中身 ===== */
 
-        <div class="card">
-          <img src="assets/secret_2.png" alt="">
-          <h3>コミュニティメンバーは2万人以上！</h3>
-          <p>母体コミュニティ（Ninja DAO）には、国内外からたくさんの仲間が集結。</p>
-        </div>
+.wrap{
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 32px 16px 64px;
+}
 
-        <div class="card">
-          <img src="assets/secret_3.png" alt="">
-          <h3>頼れるパートナー</h3>
-          <p>
-            実は忍者の相棒として活躍中。<br>
-            口寄せの術で呼ばれて、<br>
-            いざという時はすごいかも！？
-          </p>
-        </div>
-      </div>
-    </section>
+.section{
+  margin-top: 32px;
+}
 
-  </main>
-</body>
-</html>
+.lead{
+  font-size: 16px;
+}
+
+.countdown-box{
+  margin-top: 16px;
+  padding: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+}
+
+.label{
+  color: var(--muted);
+  font-size: 14px;
+}
+
+.countdown{
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.note{
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.h2{
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.grid{
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 760px){
+  .grid{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.card{
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.card img{
+  width: 100%;
+  border-radius: 12px;
+}
+
+.card h3{
+  margin: 10px 0 6px;
+  font-size: 17px;
+}
