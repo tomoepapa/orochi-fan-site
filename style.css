@@ -171,4 +171,9 @@ body{
   .hero-topline{ font-size: 26px; margin-top: 88px; padding: 0 12px; }
   .hero-chara{ width: min(260px, 72vw); max-height: 320px; }
 }
+/* ===== 背景を確実に勝たせる（最終保険） ===== */
+header.hero{
+  background: url("./assets/hero_bg.png") center / cover no-repeat !important;
+}
+
 
