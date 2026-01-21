@@ -1,152 +1,176 @@
 :root{
-  --bg:#ffffff;
   --text:#111;
   --muted:#666;
-  --card:#fafafa;
-  --border:#e7e7e7;
+  --card:#ffffffcc;
+  --border:#eaeaea;
 }
 
-*{
-  box-sizing: border-box;
-}
+*{ box-sizing:border-box; }
 
 body{
-  margin: 0;
-  font-family: "M PLUS Rounded 1c",
-               system-ui,
-               -apple-system,
-               "Hiragino Kaku Gothic ProN",
-               "Noto Sans JP",
-               sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.75;
-  font-size: 15px;
+  margin:0;
+  font-family:"M PLUS Rounded 1c", system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  color:var(--text);
+  line-height:1.75;
+  font-size:15px;
+  background:#fff;
 }
 
 /* ===== ヒーロー（リーリー風） ===== */
+.hero{
+  position:relative;
+  min-height: 620px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  text-align:center;
+  overflow:hidden;
 
-.hero--full{
-  position: relative;
-  min-height: 520px;
+  /* ① 画像があればそれを使う */
   background-image: url("assets/hero_bg.png");
   background-size: cover;
   background-position: center;
-  display: grid;
-  place-items: center;
-  text-align: center;
+
+  /* ② 画像が無い/読めない場合でもリーリーっぽい空気を出す保険 */
+  background-color:#f6f7ff;
+  background-blend-mode: overlay;
+}
+
+/* 画面いっぱいに */
+.hero{
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
 }
 
+/* 左上のピル */
 .hero-badge{
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  padding: 10px 14px;
+  position:absolute;
+  top:16px;
+  left:16px;
+  padding:10px 14px;
   background: rgba(255,255,255,0.85);
-  border-radius: 999px;
-  font-weight: 700;
-  font-size: 15px;
+  border: 1px solid rgba(255,255,255,0.6);
+  border-radius:999px;
+  font-weight:700;
+  font-size:15px;
+  backdrop-filter: blur(6px);
 }
+.hero-badge span{ color:#666; font-weight:600; margin:0 6px; }
 
-.hero-badge span{
-  color: #666;
-  font-weight: 600;
-}
-
-.hero-title{
+/* 上の一言（リーリーの上部テキスト枠） */
+.hero-topline{
+  margin-top: 92px;
   font-size: 34px;
   font-weight: 800;
-  color: rgba(0,0,0,0.7);
-  margin-top: 40px;
+  color: rgba(0,0,0,0.65);
+  text-shadow: 0 1px 0 rgba(255,255,255,0.25);
 }
 
+/* キャラ：大きすぎ防止＋ふわふわ */
 .hero-chara{
-  width: min(260px, 42vw);   /* ←小さく */
-  max-height: 320px;         /* ←縦にはみ出さない */
-  object-fit: contain;       /* ←画像を潰さない */
-  filter: drop-shadow(0 16px 16px rgba(0,0,0,0.18));
-  animation: floaty 4.5s ease-in-out infinite;
+  width: min(320px, 62vw);
+  max-height: 360px;
+  height:auto;
+  object-fit: contain;
+  margin-top: 18px;
+  filter: drop-shadow(0 16px 16px rgba(0,0,0,0.20));
+  animation: floaty 4.6s ease-in-out infinite;
 }
-
 @keyframes floaty{
   0%{ transform: translateY(0); }
   50%{ transform: translateY(-14px); }
   100%{ transform: translateY(0); }
 }
 
-/* ===== 中身 ===== */
+/* ヒーロー下のブロック */
+.hero-bottom{
+  width: min(860px, calc(100% - 32px));
+  margin-top: 10px;
+  padding-bottom: 26px;
+}
+.hero-lead{
+  margin: 10px 0 12px;
+  font-size: 16px;
+  color: rgba(0,0,0,0.75);
+}
 
+/* カウント（静止ネタ） */
+.countdown-box{
+  margin: 0 auto;
+  padding: 16px 18px;
+  background: rgba(255,255,255,0.80);
+  border: 1px solid rgba(255,255,255,0.55);
+  border-radius: 18px;
+  max-width: 520px;
+  backdrop-filter: blur(6px);
+}
+.label{ margin:0; color:var(--muted); font-size:13px; text-align:left; }
+.countdown{
+  margin-top: 6px;
+  font-size: 18px;
+  font-weight: 800;
+  text-align:left;
+}
+.note{ margin: 6px 0 0; color:var(--muted); font-size:12px; text-align:left; }
+
+/* ===== 本文 ===== */
 .wrap{
   max-width: 860px;
   margin: 0 auto;
-  padding: 32px 16px 64px;
+  padding: 30px 16px 64px;
 }
-
-.section{
-  margin-top: 32px;
-}
-
-.lead{
-  font-size: 16px;
-}
-
-.countdown-box{
-  margin-top: 16px;
-  padding: 16px;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 16px;
-}
-
-.label{
-  color: var(--muted);
-  font-size: 14px;
-}
-
-.countdown{
-  font-size: 18px;
-  font-weight: 700;
-  margin-top: 6px;
-}
-
-.note{
-  font-size: 12px;
-  color: var(--muted);
-}
-
-.h2{
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 16px;
-}
+.section{ margin: 28px 0; }
+.h2{ margin: 0 0 14px; font-size: 22px; font-weight: 800; }
 
 .grid{
-  display: grid;
-  gap: 16px;
+  display:grid;
+  gap: 14px;
+  grid-template-columns: 1fr;
 }
-
 @media (min-width: 760px){
-  .grid{
-    grid-template-columns: repeat(3, 1fr);
-  }
+  .grid{ grid-template-columns: repeat(3, 1fr); }
+  .grid.links{ grid-template-columns: repeat(2, 1fr); }
 }
 
 .card{
-  background: var(--card);
+  background: #fafafa;
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 12px;
 }
-
 .card img{
-  width: 100%;
+  width:100%;
+  height:auto;
+  display:block;
   border-radius: 12px;
 }
+.card h3{ margin: 10px 0 6px; font-size: 17px; }
+.card p{ margin: 0; color: rgba(0,0,0,0.78); }
 
-.card h3{
-  margin: 10px 0 6px;
-  font-size: 17px;
+.linkcard{
+  display:block;
+  padding: 14px 16px;
+  background:#fafafa;
+  border:1px solid var(--border);
+  border-radius:16px;
+  text-decoration:none;
+  color:var(--text);
+  font-weight:800;
 }
+.linkcard:hover{ outline: 2px solid #00000010; }
 
+.footer{
+  margin-top: 40px;
+  padding-top: 14px;
+  border-top: 1px solid var(--border);
+  color: var(--muted);
+  font-size: 12px;
+}
+.small{ color:var(--muted); font-size:12px; margin-top: 10px; }
+
+@media (max-width: 680px){
+  .hero{ min-height: 560px; }
+  .hero-topline{ font-size: 26px; margin-top: 88px; padding: 0 12px; }
+  .hero-chara{ width: min(260px, 72vw); max-height: 320px; }
+}
