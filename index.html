@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>オロチ（from CNP）ファンサイト</title>
 
-  <!-- Google Fonts（リーリー寄り） -->
+  <!-- リーリー寄りの丸いフォント -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap" rel="stylesheet">
@@ -14,63 +14,75 @@
 </head>
 
 <body>
-  <header class="hero hero--full">
-    <div class="hero-badge">
-      オロチ <span>(from CNP)</span> ファンサイト
-    </div>
 
-    <h2 class="hero-title">
-      人気者じゃない方の、オマージュサイト
-    </h2>
+  <!-- ===== ヒーロー（リーリー風） ===== -->
+  <header class="hero">
+    <div class="hero-badge">オロチ <span>(from CNP)</span> ファンサイト</div>
 
-    <img
-      class="hero-chara"
-      src="assets/orochi_main.png"
-      alt="オロチ"
-    />
-  </header>
+    <!-- リーリーの「上に大きい一言」枠（イベントじゃなくネタ） -->
+    <div class="hero-topline">人気が出る日、未定！</div>
 
-  <main class="wrap">
+    <!-- キャラ（ふわふわ揺れる） -->
+    <img class="hero-chara" src="assets/orochi_main.png" alt="オロチ" />
 
-    <section class="section">
-      <p class="lead">
-        この、ふわっと縁起のよさそうな白ヘビ……だれ？
-      </p>
+    <div class="hero-bottom">
+      <p class="hero-lead">この、ふわっと縁起のよさそうな白ヘビ……だれ？</p>
 
       <div class="countdown-box">
         <p class="label">人気が出るまであと</p>
         <div class="countdown">00 日 00 時間 00 分 00 秒</div>
         <p class="note">※現在、進捗はありません。</p>
       </div>
-    </section>
+    </div>
+  </header>
+
+  <!-- ===== 以下：本文（消えてた部分を復旧） ===== -->
+  <main class="wrap">
 
     <section class="section">
       <h2 class="h2">実はすごいヘビ、オロチの秘密</h2>
 
       <div class="grid">
-        <div class="card">
-          <img src="assets/secret_1.png" alt="">
+        <article class="card">
+          <img src="assets/secret_1.png" alt="秘密1">
           <h3>FiNANCiEでミームトークンに！</h3>
           <p>「開運オロチトークン」として、みんなで担いで育てるプロジェクトに。</p>
-        </div>
+        </article>
 
-        <div class="card">
-          <img src="assets/secret_2.png" alt="">
+        <article class="card">
+          <img src="assets/secret_2.png" alt="秘密2">
           <h3>コミュニティメンバーは2万人以上！</h3>
           <p>母体コミュニティ（Ninja DAO）には、国内外からたくさんの仲間が集結。</p>
-        </div>
+        </article>
 
-        <div class="card">
-          <img src="assets/secret_3.png" alt="">
+        <article class="card">
+          <img src="assets/secret_3.png" alt="秘密3">
           <h3>頼れるパートナー</h3>
           <p>
             実は忍者の相棒として活躍中。<br>
             口寄せの術で呼ばれて、<br>
             いざという時はすごいかも！？
           </p>
-        </div>
+        </article>
       </div>
     </section>
+
+    <section class="section">
+      <h2 class="h2">リンク集</h2>
+
+      <div class="grid links">
+        <a class="linkcard" href="https://financie.jp/" target="_blank" rel="noreferrer">FiNANCiE</a>
+        <a class="linkcard" href="https://x.com/" target="_blank" rel="noreferrer">X（確認用）</a>
+        <a class="linkcard" href="https://www.cryptoninja-partners.xyz" target="_blank" rel="noreferrer">CNP公式サイト</a>
+        <a class="linkcard" href="#" target="_blank" rel="noreferrer">（あとで追加OK）</a>
+      </div>
+
+      <p class="small">※リンクはあとで差し替えOK。</p>
+    </section>
+
+    <footer class="footer">
+      <p>© Orochi Fan Site</p>
+    </footer>
 
   </main>
 </body>
