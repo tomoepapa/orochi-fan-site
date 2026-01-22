@@ -176,4 +176,69 @@ header.hero{
   background: url("./assets/hero_bg.png") center / cover no-repeat !important;
 }
 
+/* ====== リーリー寄せ：セクション見出し ====== */
+.section{
+  margin: 52px 0 28px;      /* 上を広めに */
+}
+
+.h2{
+  font-size: 26px;          /* 少し大きく */
+  font-weight: 800;
+  margin: 0 0 18px;         /* 下に余白 */
+  letter-spacing: 0.02em;
+}
+
+/* ====== リーリー寄せ：カード全体 ====== */
+.grid{
+  gap: 18px;                /* カード間を少し広げる */
+}
+
+.card{
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 18px;
+  padding: 14px;
+  box-shadow:
+    0 10px 25px rgba(0,0,0,0.07),
+    0 1px 0 rgba(255,255,255,0.7) inset; /* ほんのり柔らかい */
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+.card:hover{
+  transform: translateY(-2px);
+  box-shadow:
+    0 14px 34px rgba(0,0,0,0.10),
+    0 1px 0 rgba(255,255,255,0.75) inset;
+}
+
+/* ====== 重要：画像サイズを統一（バラバラ解消） ====== */
+.card img{
+  width: 100%;
+  height: 150px;            /* ★ここで高さ固定 → サイズが揃う */
+  object-fit: cover;        /* はみ出しはトリミングして揃える */
+  display: block;
+  border-radius: 14px;
+}
+
+/* 文字の見た目もリーリー寄りに */
+.card h3{
+  margin: 12px 0 8px;
+  font-size: 18px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.card p{
+  margin: 0;
+  color: rgba(0,0,0,0.78);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+/* 画面が狭い時のカード画像は少し高くして見栄えUP */
+@media (max-width: 680px){
+  .card img{ height: 180px; }
+  .h2{ font-size: 22px; }
+}
+
 
