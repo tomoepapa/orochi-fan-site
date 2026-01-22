@@ -383,4 +383,36 @@ body{
   .work-img{ height: 180px; }
 }
 
+/* ===== リーリー風 ボタン ===== */
+.btn-link{
+  display:inline-flex;
+  align-items:center;
+  gap:6px;
+  padding:10px 18px;
+  margin-top:12px;
+
+  background:#fff;
+  color:#333;
+  font-size:14px;
+  font-weight:600;
+  text-decoration:none;
+
+  border-radius:999px;
+  box-shadow:0 6px 16px rgba(0,0,0,0.12);
+  transition:all .25s ease;
+}
+
+/* → アイコンを自動で付ける */
+.btn-link::after{
+  content:"↗";
+  font-size:13px;
+  opacity:.7;
+}
+
+/* ホバー時（リーリーっぽい浮き） */
+.btn-link:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 24px rgba(0,0,0,0.18);
+}
+
 
