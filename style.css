@@ -468,3 +468,21 @@ header.hero{
   }
   .work-img{ height: 200px !important; }
 }
+
+/* 「リーリーの秘密」セクション背景をグレー（画面いっぱい） */
+#secrets,
+.section.secrets{
+  background: #f3f4f6 !important;
+  padding: 56px 0 64px !important;
+
+  /* 画面いっぱいに広げる */
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+}
+
+/* 中身は中央幅に戻す */
+#secrets .wrap,
+#secrets .container{
+  width: min(1100px, calc(100% - 32px)) !important;
+  margin: 0 auto !important;
+}
