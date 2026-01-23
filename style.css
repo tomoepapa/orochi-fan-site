@@ -1,15 +1,17 @@
-/* =========================
-   Orochi Fan Site (LeeLee風) - style.css 完成版
-   ※このファイル1本に統合（重複/無駄を整理済み）
-   ========================= */
+/* =========================================
+   Orochi Fan Site – LeeLee風 完成版 style.css
+   これ1本でOK（上書き・追記不要）
+   ========================================= */
 
+/* ---------- 基本設定 ---------- */
 :root{
   --text: rgba(0,0,0,0.78);
   --muted: rgba(0,0,0,0.60);
   --border: rgba(0,0,0,0.06);
 
-  --card-bg: #fff;
-  --radius-lg: 18px;
+  --bg-gray: #f3f4f6;
+
+  --radius: 22px;
 
   --shadow: 0 10px 24px rgba(0,0,0,0.08);
   --shadow-hover: 0 18px 40px rgba(0,0,0,0.14);
@@ -18,220 +20,143 @@
   --btn-bg-hover: #787878;
 }
 
-*{ box-sizing:border-box; }
+*{ box-sizing: border-box; }
 
 body{
-  margin:0;
-  font-family:"M PLUS Rounded 1c", system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
+  margin: 0;
+  font-family: "M PLUS Rounded 1c", system-ui, -apple-system,
+    "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
   color: var(--text);
-  line-height:1.75;
-  font-size:15px;
-  background:#fff;
+  line-height: 1.75;
+  font-size: 15px;
+  background: #fff;
 }
 
-/* =========================
-   HERO（リーリー風）
-   ========================= */
+/* =========================================
+   HERO
+   ========================================= */
 .hero{
   position: relative;
   min-height: 620px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:flex-start;
-  text-align:center;
-  overflow:hidden;
+  text-align: center;
+  overflow: hidden;
 
-  /* 背景：確実に反映（GitHub Pagesでも安全） */
   background: url("./assets/hero_bg.png") center / cover no-repeat;
-}
 
-/* 画面いっぱいに伸ばす（左右余白消し） */
-.hero{
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
 }
 
-/* 最終保険（競合で負けた時に勝たせる） */
-header.hero{
-  background: url("./assets/hero_bg.png") center / cover no-repeat !important;
-}
-
-/* 左上のピル */
 .hero-badge{
-  position:absolute;
-  top:16px;
-  left:16px;
-  padding:10px 14px;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 10px 14px;
   background: rgba(255,255,255,0.85);
-  border: 1px solid rgba(255,255,255,0.6);
   border-radius: 999px;
   font-weight: 700;
   font-size: 15px;
-  backdrop-filter: blur(6px);
 }
+
 .hero-badge span{
   color: rgba(0,0,0,0.55);
   font-weight: 600;
-  margin: 0 6px;
 }
 
-/* 上の一言 */
 .hero-topline{
   margin-top: 92px;
   font-size: 34px;
   font-weight: 800;
   color: rgba(0,0,0,0.65);
-  text-shadow: 0 1px 0 rgba(255,255,255,0.25);
 }
 
-/* キャラ */
 .hero-chara{
   width: min(320px, 62vw);
-  max-height: 360px;
-  height:auto;
-  object-fit: contain;
   margin-top: 18px;
-  filter: drop-shadow(0 16px 16px rgba(0,0,0,0.20));
+  filter: drop-shadow(0 16px 16px rgba(0,0,0,0.2));
   animation: floaty 4.6s ease-in-out infinite;
 }
+
 @keyframes floaty{
   0%{ transform: translateY(0); }
   50%{ transform: translateY(-14px); }
   100%{ transform: translateY(0); }
 }
 
-/* ヒーロー下ブロック */
 .hero-bottom{
-  width: min(860px, calc(100% - 32px));
-  margin-top: 10px;
+  max-width: 860px;
+  margin: 10px auto 0;
   padding-bottom: 26px;
 }
+
 .hero-lead{
   margin: 10px 0 12px;
   font-size: 16px;
-  color: rgba(0,0,0,0.75);
 }
 
-/* カウント */
 .countdown-box{
+  max-width: 520px;
   margin: 0 auto;
   padding: 16px 18px;
-  background: rgba(255,255,255,0.80);
-  border: 1px solid rgba(255,255,255,0.55);
+  background: rgba(255,255,255,0.85);
   border-radius: 18px;
-  max-width: 520px;
-  backdrop-filter: blur(6px);
 }
-.label{ margin:0; color: var(--muted); font-size:13px; text-align:left; }
-.countdown{ margin-top: 6px; font-size:18px; font-weight:800; text-align:left; }
-.note{ margin: 6px 0 0; color: var(--muted); font-size:12px; text-align:left; }
 
-/* =========================
-   Layout / Section
-   ========================= */
+/* =========================================
+   共通レイアウト
+   ========================================= */
 .wrap{
   max-width: 860px;
   margin: 0 auto;
-  padding: 30px 16px 64px;
+  padding: 0 16px 64px;
 }
 
 .section{
   margin: 58px 0 32px;
 }
 
-/* 共通：セクション見出し（中央・グレー寄り） */
 .h2,
 .section-title{
   text-align: center;
   font-size: 26px;
   font-weight: 800;
-  margin: 0 0 22px;
-  letter-spacing: 0.02em;
+  margin-bottom: 22px;
   color: rgba(0,0,0,0.68);
-  text-shadow: 0 1px 0 rgba(255,255,255,0.55);
-  line-height: 1.25;
 }
 
-/* container（works用） */
-.container{
-  width: min(860px, calc(100% - 32px));
-  margin: 0 auto;
+/* =========================================
+   オロチの秘密（グレー背景）
+   ========================================= */
+.section.secrets{
+  background: var(--bg-gray);
+  margin: 0 calc(50% - 50vw);
+  padding: 56px 0 64px;
 }
 
-/* =========================
-   「オロチの秘密」カード（.grid .card）
-   ========================= */
+.section.secrets .h2,
+.section.secrets .grid{
+  max-width: 860px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- グリッド ---------- */
 .grid{
   display: grid;
-  gap: 18px;
-  grid-template-columns: 1fr;
+  gap: 22px;
 }
+
 @media (min-width: 760px){
-  .grid{ grid-template-columns: repeat(3, 1fr); }
-  .grid.links{ grid-template-columns: repeat(2, 1fr); }
+  .grid{
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
-.card{
-  background: var(--card-bg);
+/* ---------- オロチの秘密カード ---------- */
+.section.secrets .card{
+  background: #fff;
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 14px;
-  box-shadow: var(--shadow);
-  transition: transform .22s ease, box-shadow .22s ease;
-  will-change: transform;
-}
-.card:hover{
-  transform: translateY(-8px);
-  box-shadow: var(--shadow-hover);
-}
-
-/* 画像を揃える */
-.card img{
-  width: 100%;
-  height: 170px;
-  object-fit: cover;
-  display:block;
-  border-radius: 14px;
-}
-
-/* 「オロチの秘密」内の文字：中央揃え（リーリーに合わせる） */
-.card h3,
-.card p{
-  text-align: center;
-}
-
-/* 文字サイズをリーリー寄りに少し大きめ */
-.card h3{
-  margin: 12px 0 8px;
-  font-size: 18px;
-  font-weight: 800;
-  line-height: 1.35;
-  color: rgba(0,0,0,0.78);
-}
-.card p{
-  margin: 0;
-  color: rgba(0,0,0,0.72);
-  font-size: 14px;
-  line-height: 1.8;
-}
-
-/* =========================
-   Works（テレビやYouTubeでも大活躍！）
-   ========================= */
-.works-grid{
-  display: grid;
-  gap: 18px;
-  grid-template-columns: 1fr;
-}
-@media (min-width: 760px){
-  .works-grid{ grid-template-columns: repeat(3, 1fr); }
-}
-
-.work-card{
-  background: var(--card-bg);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
+  border-radius: var(--radius);
   overflow: hidden;
 
   display: flex;
@@ -239,391 +164,142 @@ header.hero{
 
   box-shadow: var(--shadow);
   transition: transform .22s ease, box-shadow .22s ease;
-  will-change: transform;
 }
 
-/* “枠が動く” */
-.work-card:hover,
-.work-card:focus-within{
+.section.secrets .card:hover{
   transform: translateY(-8px);
   box-shadow: var(--shadow-hover);
 }
 
-/* 画像の高さ固定で統一 */
-.work-img{
+/* 画像：上だけ丸く見える */
+.section.secrets .card img{
   width: 100%;
-  height: 170px;
+  height: 190px;
   object-fit: cover;
-  display:block;
+  border-radius: 0; /* ←重要 */
 }
 
-/* 中身：中央揃え＋高さ揃え */
-.work-content{
-  padding: 16px 16px 18px;
+/* テキスト */
+.section.secrets .card h3{
+  margin: 14px 16px 8px;
+  font-size: 20px;
+  font-weight: 800;
   text-align: center;
+}
 
-  display:flex;
+.section.secrets .card p{
+  margin: 0;
+  padding: 0 16px 18px;
+  font-size: 15px;
+  line-height: 1.75;
+  text-align: center;
+  flex-grow: 1;
+}
+
+/* =========================================
+   Works（白背景）
+   ========================================= */
+.works-grid{
+  display: grid;
+  gap: 22px;
+}
+
+@media (min-width: 760px){
+  .works-grid{
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.work-card{
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+
+  display: flex;
   flex-direction: column;
-  gap: 8px;
+
+  box-shadow: var(--shadow);
+}
+
+/* Worksは浮かせない */
+.work-card:hover{
+  transform: none;
+}
+
+/* 画像（上だけ丸く見える） */
+.work-img{
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* 中身 */
+.work-content{
+  padding: 18px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
   flex: 1;
 }
 
-/* 見出し */
 .work-content h3{
-  margin: 0;
-  font-size: 18px;
+  margin: 0 0 6px;
+  font-size: 20px;
   font-weight: 800;
-  color: rgba(0,0,0,0.78);
 }
 
-/* 説明文：高さを確保して各カードを揃える */
 .work-content p{
   margin: 0;
-  color: rgba(0,0,0,0.72);
-  line-height: 1.7;
-
-  /* YouTube等で文章量が違っても高さが揃う */
+  font-size: 15px;
+  line-height: 1.75;
   min-height: 4.2em;
 }
 
-/* ボタン：リーリー寄せ（グレー）＋ホバーで明るく */
+/* ボタン */
 .btn-link{
-  margin: 10px auto 0;     /* 中央 */
+  margin: auto auto 0;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
-  gap: 8px;
-
-  padding: 10px 16px;
+  gap: 6px;
+  padding: 11px 18px;
   border-radius: 999px;
-  text-decoration: none;
-
   background: var(--btn-bg);
   color: #fff;
+  text-decoration: none;
   font-weight: 800;
   font-size: 14px;
-
-  box-shadow: none;
-  transition: background-color .18s ease;
 }
+
 .btn-link:hover{
   background: var(--btn-bg-hover);
 }
+
 .btn-link::after{
   content: "↗";
   font-size: 13px;
-  opacity: .9;
 }
 
-/* ボタンを常にカード下部へ */
-.work-content .btn-link{
-  margin-top: auto;
-}
-
-/* =========================
-   Links（もし使ってる場合）
-   ========================= */
-.linkcard{
-  display:block;
-  padding: 14px 16px;
-  background: #fff;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  text-decoration:none;
-  color: rgba(0,0,0,0.78);
-  font-weight:800;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.06);
-  transition: transform .18s ease, box-shadow .18s ease;
-}
-.linkcard:hover{
-  transform: translateY(-4px);
-  box-shadow: 0 14px 28px rgba(0,0,0,0.10);
-}
-
-/* =========================
-   Footer
-   ========================= */
-.footer{
-  margin-top: 40px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(0,0,0,0.06);
-  color: rgba(0,0,0,0.55);
-  font-size: 12px;
-}
-.small{
-  color: rgba(0,0,0,0.55);
-  font-size: 12px;
-  margin-top: 10px;
-}
-
-/* =========================
-   Simple animation helpers
-   ========================= */
-.fade-in-up{
-  animation: fadeUp .6s ease both;
-}
-.delay-100{ animation-delay: .1s; }
-.delay-200{ animation-delay: .2s; }
-.delay-300{ animation-delay: .3s; }
-.delay-400{ animation-delay: .4s; }
-
-@keyframes fadeUp{
-  from{ opacity: 0; transform: translateY(10px); }
-  to{ opacity: 1; transform: translateY(0); }
-}
-
-/* =========================
-   Responsive
-   ========================= */
-@media (max-width: 680px){
-  .hero{ min-height: 560px; }
-  .hero-topline{ font-size: 26px; margin-top: 88px; padding: 0 12px; }
-  .hero-chara{ width: min(260px, 72vw); max-height: 320px; }
-
-  .h2, .section-title{ font-size: 22px; }
-
-  .card img,
-  .work-img{ height: 180px; }
-}
-
+/* =========================================
+   Utilities
+   ========================================= */
 .nowrap{
   white-space: nowrap;
-  display: inline-block;   /* これが効く：途中で割れなくなる */
+  display: inline-block;
 }
 
-/* グリッドの“見た目の小ささ”は、列幅+余白でも出るので調整 */
-.grid,
-.works-grid{
-  gap: 22px !important;
+/* =========================================
+   Responsive
+   ========================================= */
+@media (max-width: 680px){
+  .hero{ min-height: 560px; }
+  .hero-topline{ font-size: 26px; }
+  .hero-chara{ width: min(260px, 72vw); }
+
+  .h2,
+  .section-title{ font-size: 22px; }
+
+  .section.secrets .card img,
+  .work-img{ height: 180px; }
 }
-
-/* works（テレビやYouTubeでも大活躍！）のカードを大きく見せる */
-.work-card{
-  border-radius: 22px !important;
-  box-shadow: 0 12px 28px rgba(0,0,0,0.10) !important;
-}
-
-.work-img{
-  height: 190px !important; /* 170→190で少し大きく */
-}
-
-.work-content{
-  padding: 18px 18px 20px !important; /* 余白UP */
-}
-
-.work-content h3{
-  font-size: 20px !important; /* 文字を少し大きく */
-}
-
-.work-content p{
-  font-size: 15px !important;
-  line-height: 1.75 !important;
-}
-
-/* ボタンも少し大きく */
-.btn-link{
-  padding: 11px 18px !important;
-  font-size: 14px !important;
-}
-
-
-/* =========================
-   「リーリーの秘密」セクション背景をグレーに
-   ========================= */
-
-/* ① もし secrets というidがあるなら効く */
-#secrets{
-  background: #f3f4f6 !important;     /* リーリーっぽい薄グレー */
-  padding: 56px 0 64px !important;   /* 上下余白を増やす */
-}
-
-/* ② idが無くて class="section secrets" ならこっちで効く */
-.section.secrets{
-  background: #f3f4f6 !important;
-  padding: 56px 0 64px !important;
-}
-
-/* 背景が付くと中の余白が詰まって見えるので、中身の幅は維持 */
-#secrets .container,
-.section.secrets .container{
-  width: min(1100px, calc(100% - 32px)) !important;
-}
-
-/* スマホ時 */
-@media (max-width: 900px){
-  .works-grid{
-    grid-template-columns: 1fr !important;
-  }
-  .work-img{ height: 200px !important; }
-}
-
-/* 「リーリーの秘密」セクション背景をグレー（画面いっぱい） */
-#secrets,
-.section.secrets{
-  background: #f3f4f6 !important;
-  padding: 56px 0 64px !important;
-
-  /* 画面いっぱいに広げる */
-  margin-left: calc(50% - 50vw) !important;
-  margin-right: calc(50% - 50vw) !important;
-}
-
-/* 中身は中央幅に戻す */
-#secrets .wrap,
-#secrets .container{
-  width: min(1100px, calc(100% - 32px)) !important;
-  margin: 0 auto !important;
-}
-
-/* =================================================
-   FIX 1) 枠が大きくなる問題：1100px化を打ち消す
-   ================================================= */
-.wrap{
-  max-width: 860px !important;
-  width: auto !important;
-  padding-top: 0 !important;     /* ←白い帯の原因も同時に消す */
-}
-.container{
-  width: min(860px, calc(100% - 32px)) !important;
-  max-width: 860px !important;
-}
-
-/* =================================================
-   FIX 2) ヒーロー直下から “すぐグレー” にする
-   ================================================= */
-/* 「オロチの秘密」セクション（あなたのHTMLは id="about"） */
-#about{
-  background: #f3f4f6 !important;
-
-  /* 画面端までグレーを伸ばす */
-  margin-left: calc(50% - 50vw) !important;
-  margin-right: calc(50% - 50vw) !important;
-
-  /* ヒーロー直下の白い隙間を消す */
-  margin-top: 0 !important;
-  padding-top: 44px !important;   /* グレー内の上余白（好みで調整） */
-  padding-bottom: 64px !important;
-}
-
-/* セクション共通の margin が #about に乗るのを止める */
-#about.section{
-  margin: 0 !important;
-}
-
-/* グレーの中身はいつもの幅(860px)に戻す */
-#about > .h2,
-#about > .grid{
-  width: min(860px, calc(100% - 32px)) !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* =========================
-   LeeLee風：Secrets セクション（画面いっぱいグレー）
-   ========================= */
-
-/* main(.wrap)の上の白い帯（padding:30px）のせいで隙間が出るので消す */
-.wrap{
-  padding-top: 0 !important;
-}
-
-/* secrets セクションを “画面いっぱい” に */
-#secrets.section{
-  background: #f3f4f6 !important;
-
-  /* hero直下の白い隙間の原因（section margin-top）を消す */
-  margin-top: 0 !important;
-
-  /* 画面端まで伸ばす */
-  margin-left: calc(50% - 50vw) !important;
-  margin-right: calc(50% - 50vw) !important;
-
-  /* 中の余白（リーリーっぽく） */
-  padding: 56px 0 64px !important;
-}
-
-/* グレーの中身はいつもの幅に戻す */
-#secrets .h2,
-#secrets .grid{
-  width: min(860px, calc(100% - 32px)) !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-/* =========================
-   「オロチの秘密」も Works と同じ見た目に
-   画像を枠いっぱい（余白なし）にする
-   ========================= */
-
-.card{
-  padding: 0 !important;         /* ←これで画像の周りの余白が消える */
-  overflow: hidden !important;   /* ←角丸で画像を切る */
-  display: flex;
-  flex-direction: column;
-}
-
-/* 画像はカード上部にピッタリ */
-.card img{ height: 190px; }
-  border-radius: 0 !important;   /* ←カード側で丸めるので画像は不要 */
-  height: 170px;                 /* work-img と同じ高さに */
-  object-fit: cover;
-}
-
-/* 文字エリアにだけ余白をつける */
-.card h3,
-.card p{
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-/* 画像の下に少し余白 → 見出しとの距離 */
-.card h3{
-  margin-top: 14px !important;
-}
-
-/* カード下の余白（最後の行の下） */
-.card p{
-  padding-bottom: 18px;
-}
-
-/* =========================
-   オロチの秘密カードを Works と同サイズに揃える
-   ========================= */
-
-/* カード全体を flex にして高さを揃える */
-.card{
-  display: flex;
-  flex-direction: column;
-  height: 100%;                 /* ← これ重要 */
-}
-
-/* 画像サイズを Works と完全一致 */
-.card img{
-  height: 190px;                /* work-img と同じ */
-  object-fit: cover;
-  flex-shrink: 0;
-}
-
-/* テキストエリアを伸ばして高さを揃える */
-.card h3,
-.card p{
-  padding-left: 16px;
-  padding-right: 16px;
-}
-
-/* テキスト全体を包む“見えない余白”役 */
-.card h3{
-  margin-top: 14px;
-}
-
-.card p{
-  flex-grow: 1;                 /* ← 高さを揃える核心 */
-  padding-bottom: 18px;
-}
-
-/* グリッド側も高さ揃えを許可 */
-.grid{
-  align-items: stretch;
-}
-
-
