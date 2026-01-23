@@ -1,8 +1,9 @@
 :root{
-  --text:#111;
-  --muted:#666;
-  --card:#ffffffcc;
-  --border:#eaeaea;
+  --text: rgba(0,0,0,0.78);
+  --muted: rgba(0,0,0,0.62);
+  --border: rgba(0,0,0,0.06);
+  --shadow: 0 10px 24px rgba(0,0,0,0.08);
+  --shadowHover: 0 18px 40px rgba(0,0,0,0.14);
 }
 
 *{ box-sizing:border-box; }
@@ -10,52 +11,53 @@
 body{
   margin:0;
   font-family:"M PLUS Rounded 1c", system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
-  color:var(--text);
-  line-height:1.75;
-  font-size:15px;
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 15px;
   background:#fff;
 }
 
-/* ===== ヒーロー（リーリー風） ===== */
+/* =========================
+   HERO（リーリー風）
+   ========================= */
 .hero{
-  position:relative;
+  position: relative;
   min-height: 620px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:flex-start;
-  text-align:center;
-  overflow:hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+  overflow: hidden;
 
-  /* 背景は一括指定にして確実に出す */
+  /* 背景を確実に表示 */
   background: url("./assets/hero_bg.png") center / cover no-repeat;
 
-  /* うっすら白をかけたい場合は blend じゃなく疑似要素でやる（後述） */
-}
-
-
-/* 画面いっぱいに */
-.hero{
+  /* 画面いっぱい */
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
 }
 
-/* 左上のピル */
+/* 左上ピル */
 .hero-badge{
-  position:absolute;
-  top:16px;
-  left:16px;
-  padding:10px 14px;
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 10px 14px;
   background: rgba(255,255,255,0.85);
   border: 1px solid rgba(255,255,255,0.6);
-  border-radius:999px;
-  font-weight:700;
-  font-size:15px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 15px;
   backdrop-filter: blur(6px);
 }
-.hero-badge span{ color:#666; font-weight:600; margin:0 6px; }
+.hero-badge span{
+  color: rgba(0,0,0,0.55);
+  font-weight: 600;
+  margin: 0 6px;
+}
 
-/* 上の一言（リーリーの上部テキスト枠） */
+/* 上の一言 */
 .hero-topline{
   margin-top: 92px;
   font-size: 34px;
@@ -64,7 +66,7 @@ body{
   text-shadow: 0 1px 0 rgba(255,255,255,0.25);
 }
 
-/* キャラ：大きすぎ防止＋ふわふわ */
+/* キャラ：ふわふわ */
 .hero-chara{
   width: min(320px, 62vw);
   max-height: 360px;
@@ -80,7 +82,7 @@ body{
   100%{ transform: translateY(0); }
 }
 
-/* ヒーロー下のブロック */
+/* ヒーロー下 */
 .hero-bottom{
   width: min(860px, calc(100% - 32px));
   margin-top: 10px;
@@ -89,10 +91,10 @@ body{
 .hero-lead{
   margin: 10px 0 12px;
   font-size: 16px;
-  color: rgba(0,0,0,0.75);
+  color: rgba(0,0,0,0.72);
 }
 
-/* カウント（静止ネタ） */
+/* カウント */
 .countdown-box{
   margin: 0 auto;
   padding: 16px 18px;
@@ -102,173 +104,83 @@ body{
   max-width: 520px;
   backdrop-filter: blur(6px);
 }
-.label{ margin:0; color:var(--muted); font-size:13px; text-align:left; }
-.countdown{
-  margin-top: 6px;
-  font-size: 18px;
-  font-weight: 800;
-  text-align:left;
-}
-.note{ margin: 6px 0 0; color:var(--muted); font-size:12px; text-align:left; }
+.label{ margin:0; color: var(--muted); font-size:13px; text-align:left; }
+.countdown{ margin-top: 6px; font-size: 18px; font-weight: 800; text-align:left; }
+.note{ margin: 6px 0 0; color: var(--muted); font-size:12px; text-align:left; }
 
-/* ===== 本文 ===== */
+/* =========================
+   LAYOUT 共通
+   ========================= */
 .wrap{
   max-width: 860px;
   margin: 0 auto;
   padding: 30px 16px 64px;
 }
-.section{ margin: 28px 0; }
-.h2{ margin: 0 0 14px; font-size: 22px; font-weight: 800; }
 
-.grid{
-  display:grid;
-  gap: 14px;
-  grid-template-columns: 1fr;
-}
-@media (min-width: 760px){
-  .grid{ grid-template-columns: repeat(3, 1fr); }
-  .grid.links{ grid-template-columns: repeat(2, 1fr); }
-}
-
-.card{
-  background: #fafafa;
-  border: 1px solid var(--border);
-  border-radius: 16px;
-  padding: 12px;
-}
-.card img{
-  width:100%;
-  height:auto;
-  display:block;
-  border-radius: 12px;
-}
-.card h3{ margin: 10px 0 6px; font-size: 17px; }
-.card p{ margin: 0; color: rgba(0,0,0,0.78); }
-
-.linkcard{
-  display:block;
-  padding: 14px 16px;
-  background:#fafafa;
-  border:1px solid var(--border);
-  border-radius:16px;
-  text-decoration:none;
-  color:var(--text);
-  font-weight:800;
-}
-.linkcard:hover{ outline: 2px solid #00000010; }
-
-.footer{
-  margin-top: 40px;
-  padding-top: 14px;
-  border-top: 1px solid var(--border);
-  color: var(--muted);
-  font-size: 12px;
-}
-.small{ color:var(--muted); font-size:12px; margin-top: 10px; }
-
-@media (max-width: 680px){
-  .hero{ min-height: 560px; }
-  .hero-topline{ font-size: 26px; margin-top: 88px; padding: 0 12px; }
-  .hero-chara{ width: min(260px, 72vw); max-height: 320px; }
-}
-/* ===== 背景を確実に勝たせる（最終保険） ===== */
-header.hero{
-  background: url("./assets/hero_bg.png") center / cover no-repeat !important;
-}
-
-/* ====== リーリー寄せ：セクション見出し ====== */
-.section{
-  margin: 52px 0 28px;      /* 上を広めに */
-}
-
-.h2{
-  font-size: 26px;          /* 少し大きく */
-  font-weight: 800;
-  margin: 0 0 18px;         /* 下に余白 */
-  letter-spacing: 0.02em;
-}
-
-/* ====== リーリー寄せ：カード全体 ====== */
-.grid{
-  gap: 18px;                /* カード間を少し広げる */
-}
-
-.card{
-  background: rgba(255,255,255,0.92);
-  border: 1px solid rgba(0,0,0,0.06);
-  border-radius: 18px;
-  padding: 14px;
-  box-shadow:
-    0 10px 25px rgba(0,0,0,0.07),
-    0 1px 0 rgba(255,255,255,0.7) inset; /* ほんのり柔らかい */
-  transition: transform .15s ease, box-shadow .15s ease;
-}
-
-.card:hover{
-  transform: translateY(-2px);
-  box-shadow:
-    0 14px 34px rgba(0,0,0,0.10),
-    0 1px 0 rgba(255,255,255,0.75) inset;
-}
-
-/* ====== 重要：画像サイズを統一（バラバラ解消） ====== */
-.card img{
-  width: 100%;
-  height: 150px;            /* ★ここで高さ固定 → サイズが揃う */
-  object-fit: cover;        /* はみ出しはトリミングして揃える */
-  display: block;
-  border-radius: 14px;
-}
-
-/* 文字の見た目もリーリー寄りに */
-.card h3{
-  margin: 12px 0 8px;
-  font-size: 18px;
-  font-weight: 800;
-  line-height: 1.35;
-}
-
-.card p{
-  margin: 0;
-  color: rgba(0,0,0,0.78);
-  font-size: 14px;
-  line-height: 1.8;
-}
-
-/* 画面が狭い時のカード画像は少し高くして見栄えUP */
-@media (max-width: 680px){
-  .card img{ height: 180px; }
-  .h2{ font-size: 22px; }
-}
-
-/* ===== リーリー寄せ：全体の文字色を少しグレーに ===== */
-body{
-  color: rgba(0,0,0,0.78);
-}
-
-/* ===== 見出し（タイトル）を中央＆グレー寄り ===== */
-.h2{
-  text-align: center;
-  color: rgba(0,0,0,0.68);
-  text-shadow: 0 1px 0 rgba(255,255,255,0.55);
-}
-
-/* セクションの余白も「中央タイトル」っぽく調整 */
 .section{
   margin: 58px 0 32px;
 }
 
-/* カード見出しも黒→少し柔らかく */
+.h2{
+  margin: 0 0 18px;
+  font-size: 26px;
+  font-weight: 800;
+  text-align: center;
+  color: rgba(0,0,0,0.68);
+  text-shadow: 0 1px 0 rgba(255,255,255,0.55);
+  letter-spacing: 0.02em;
+}
+
+/* =========================
+   秘密カード（3枚）用
+   ========================= */
+.grid{
+  display: grid;
+  gap: 18px;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 760px){
+  .grid{ grid-template-columns: repeat(3, 1fr); }
+}
+
+.card{
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  padding: 14px;
+  box-shadow: var(--shadow);
+  transition: transform .22s ease, box-shadow .22s ease;
+  overflow: hidden;
+}
+.card:hover{
+  transform: translateY(-6px);
+  box-shadow: var(--shadowHover);
+}
+
+/* 画像サイズ統一 */
+.card img{
+  width: 100%;
+  height: 170px;
+  object-fit: cover;
+  display: block;
+  border-radius: 14px;
+}
 .card h3{
+  margin: 12px 0 8px;
+  font-size: 18px;
+  font-weight: 800;
   color: rgba(0,0,0,0.78);
 }
-
-/* 本文も少し柔らかく（リーリーっぽい読み心地） */
 .card p{
+  margin: 0;
   color: rgba(0,0,0,0.72);
+  font-size: 14px;
+  line-height: 1.8;
 }
 
-/* ===== Works（リーリーの活動紹介） ===== */
+/* =========================
+   Works（リーリーと同じリンク集）
+   ========================= */
 .container{
   width: min(860px, calc(100% - 32px));
   margin: 0 auto;
@@ -289,211 +201,30 @@ body{
   gap: 18px;
   grid-template-columns: 1fr;
 }
-
 @media (min-width: 760px){
-  .works-grid{
-    grid-template-columns: repeat(3, 1fr);
-  }
+  .works-grid{ grid-template-columns: repeat(3, 1fr); }
 }
 
-.work-card{
-  background: rgba(255,255,255,0.92);
-  border: 1px solid rgba(0,0,0,0.06);
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.07);
-  transition: transform .15s ease, box-shadow .15s ease;
-}
-
-.work-card:hover{
-  transform: translateY(-2px);
-  box-shadow: 0 14px 34px rgba(0,0,0,0.10);
-}
-
-.work-img{
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  display: block;
-}
-
-.work-content{
-  padding: 14px;
-}
-
-.work-content h3{
-  margin: 0 0 6px;
-  font-size: 18px;
-  font-weight: 800;
-  color: rgba(0,0,0,0.78);
-}
-
-.work-content p{
-  margin: 0 0 12px;
-  color: rgba(0,0,0,0.72);
-  font-size: 14px;
-  line-height: 1.8;
-}
-
-/* ボタン（リーリーっぽい） */
-.btn-link{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 10px 12px;
-  border-radius: 999px;
-  background: rgba(255,255,255,0.92);
-  border: 1px solid rgba(0,0,0,0.08);
-  text-decoration: none;
-  color: rgba(0,0,0,0.78);
-  font-weight: 800;
-  box-shadow: 0 10px 20px rgba(0,0,0,0.06);
-  transition: transform .15s ease, box-shadow .15s ease;
-}
-
-.btn-link::after{
-  content: "↗";
-  opacity: .55;
-  font-size: 12px;
-}
-
-.btn-link:hover{
-  transform: translateY(-1px);
-  box-shadow: 0 14px 28px rgba(0,0,0,0.09);
-}
-
-/* ふわっと出る演出（クラスが付いてるので活かす） */
-.fade-in-up{
-  animation: fadeUp .6s ease both;
-}
-.delay-100{ animation-delay: .1s; }
-.delay-200{ animation-delay: .2s; }
-.delay-300{ animation-delay: .3s; }
-.delay-400{ animation-delay: .4s; }
-
-@keyframes fadeUp{
-  from{ opacity: 0; transform: translateY(10px); }
-  to{ opacity: 1; transform: translateY(0); }
-}
-
-/* スマホは画像を少し高く */
-@media (max-width: 680px){
-  .section-title{ font-size: 22px; }
-  .work-img{ height: 180px; }
-}
-
-/* =========================
-   リーリー風：カードのホバー
-   ========================= */
-
-/* いまの.cardを「動く＋影ちょい」にする */
-.card,
-.work-card { /* work-cardを使ってる場合も両対応 */
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.06);
-  border-radius: 18px;
-  overflow: hidden;
-
-  /* 影は普段は弱め */
-  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-  transition: transform .25s ease, box-shadow .25s ease;
-}
-
-/* カーソル乗せたら “枠が動く” */
-.card:hover,
-.work-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 14px 36px rgba(0,0,0,0.14);
-}
-
-/* 画像の高さがバラバラに見えるのもリーリー寄せで揃える */
-.card img,
-.work-img {
-  width: 100%;
-  height: 170px;         /* 好みで160〜190で調整OK */
-  object-fit: cover;
-  display: block;
-}
-
-/* =========================
-   リーリー風：ボタンのホバー
-   ========================= */
-
-/* ボタン：普段は黒、ホバーでグレー（影はつけない） */
-.btn-link{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-
-  padding: 10px 16px;
-  margin-top: 12px;
-
-  border-radius: 999px;
-  border: none;
-
-  background: #111;      /* 黒 */
-  color: #fff;           /* 白文字 */
-  font-weight: 700;
-  font-size: 14px;
-  text-decoration: none;
-
-  box-shadow: none;      /* ←影は消す（リーリーっぽく） */
-  transition: background-color .2s ease, transform .2s ease;
-}
-
-/* ホバーで黒→グレーに */
-.btn-link:hover{
-  background: #444;      /* グレー */
-  transform: translateY(-1px); /* “気持ち”だけ動かす（嫌なら消してOK） */
-}
-
-/* ↗ を付けたい場合（リーリーに合わせて） */
-.btn-link::after{
-  content:"↗";
-  font-size: 13px;
-  opacity: .9;
-}
-
-/* =========================
-   LeeLee寄せ（Worksカード）
-   これを style.css の一番下に貼る
-   ========================= */
-
-/* グリッド */
-.works-grid{
-  display: grid;
-  gap: 18px;
-  grid-template-columns: repeat(3, 1fr);
-}
-@media (max-width: 900px){
-  .works-grid{ grid-template-columns: 1fr; }
-}
-
-/* カード本体：高さ揃え＋ホバーで浮く（強制） */
+/* カード：高さ揃え＋ホバーで浮く */
 .work-card{
   background: #fff;
-  border: 1px solid rgba(0,0,0,0.06);
+  border: 1px solid var(--border);
   border-radius: 18px;
   overflow: hidden;
 
   display: flex;
   flex-direction: column;
 
-  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  box-shadow: var(--shadow);
   transition: transform .22s ease, box-shadow .22s ease;
   will-change: transform;
 }
-
-/* “枠が動く”の本命（上書き負け防止で !important） */
 .work-card:hover,
 .work-card:focus-within{
-  transform: translateY(-8px) !important;
-  box-shadow: 0 18px 40px rgba(0,0,0,0.14) !important;
+  transform: translateY(-8px);
+  box-shadow: var(--shadowHover);
 }
 
-/* 画像の高さを固定して揃える */
 .work-img{
   width: 100%;
   height: 170px;
@@ -501,33 +232,33 @@ body{
   display: block;
 }
 
-/* 文字を中央揃え＋内容の高さを揃える */
+/* 中央揃え＋ボタンを下に固定 */
 .work-content{
   padding: 16px 16px 18px;
-  text-align: center; /* ←リーリーの中央揃え */
+  text-align: center;
+
   display: flex;
   flex-direction: column;
   gap: 8px;
   flex: 1;
-  justify-content: flex-start;
 }
-
 .work-content h3{
   margin: 0;
   font-size: 18px;
   font-weight: 800;
 }
-
 .work-content p{
   margin: 0;
   color: rgba(0,0,0,0.72);
   line-height: 1.7;
-  min-height: 4.2em; /* ←ここでYouTube枠などの高さ差を吸収 */
+
+  /* 高さ差を吸収してボタン位置を揃える */
+  min-height: 4.2em;
 }
 
-/* ボタン：リーリー寄せ（黒じゃなくグレー） */
+/* ボタン：リーリー寄せ（グレー＋ホバーで少し明るく） */
 .btn-link{
-  margin: 10px auto 0; /* 中央配置 */
+  margin: auto auto 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -536,40 +267,48 @@ body{
   padding: 10px 16px;
   border-radius: 999px;
 
-  background: #5a5a5a; /* ←黒じゃなくグレー */
+  background: #5a5a5a;
   color: #fff;
   font-weight: 800;
   font-size: 14px;
   text-decoration: none;
 
-  box-shadow: none !important; /* 影で主張しない */
+  box-shadow: none;
   transition: background-color .18s ease;
 }
-
-/* ボタン：ホバーでグレーが少し明るくなる（リーリーっぽい） */
 .btn-link:hover{
   background: #787878;
 }
-
-/* ↗ を付ける */
 .btn-link::after{
   content: "↗";
   font-size: 13px;
   opacity: .9;
 }
 
-/* ボタン位置をカードの下に揃える */
-.work-content{
-  display:flex;
-  flex-direction:column;
-  height:100%;
+/* =========================
+   footer
+   ========================= */
+.footer{
+  margin-top: 40px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  color: rgba(0,0,0,0.55);
+  font-size: 12px;
+}
+.small{
+  color: rgba(0,0,0,0.55);
+  font-size: 12px;
+  margin-top: 10px;
 }
 
-.work-content p{
-  margin: 0;
-}
+/* =========================
+   モバイル調整
+   ========================= */
+@media (max-width: 680px){
+  .hero{ min-height: 560px; }
+  .hero-topline{ font-size: 26px; margin-top: 88px; padding: 0 12px; }
+  .hero-chara{ width: min(260px, 72vw); max-height: 320px; }
 
-/* ←ここがポイント：ボタンを下に押し下げる */
-.work-content .btn-link{
-  margin-top: auto;
+  .h2, .section-title{ font-size: 22px; }
+  .card img, .work-img{ height: 180px; }
 }
