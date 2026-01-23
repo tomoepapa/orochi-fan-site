@@ -518,3 +518,35 @@ header.hero{
   margin-right: auto !important;
 }
 
+/* =========================
+   LeeLee風：Secrets セクション（画面いっぱいグレー）
+   ========================= */
+
+/* main(.wrap)の上の白い帯（padding:30px）のせいで隙間が出るので消す */
+.wrap{
+  padding-top: 0 !important;
+}
+
+/* secrets セクションを “画面いっぱい” に */
+#secrets.section{
+  background: #f3f4f6 !important;
+
+  /* hero直下の白い隙間の原因（section margin-top）を消す */
+  margin-top: 0 !important;
+
+  /* 画面端まで伸ばす */
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+
+  /* 中の余白（リーリーっぽく） */
+  padding: 56px 0 64px !important;
+}
+
+/* グレーの中身はいつもの幅に戻す */
+#secrets .h2,
+#secrets .grid{
+  width: min(860px, calc(100% - 32px)) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
