@@ -557,3 +557,19 @@ body{
   font-size: 13px;
   opacity: .9;
 }
+
+/* ボタン位置をカードの下に揃える */
+.work-content{
+  display:flex;
+  flex-direction:column;
+  height:100%;
+}
+
+.work-content p{
+  margin: 0;
+}
+
+/* ←ここがポイント：ボタンを下に押し下げる */
+.work-content .btn-link{
+  margin-top: auto;
+}
