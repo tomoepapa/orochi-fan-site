@@ -550,3 +550,39 @@ header.hero{
   margin-right: auto !important;
 }
 
+/* =========================
+   「オロチの秘密」も Works と同じ見た目に
+   画像を枠いっぱい（余白なし）にする
+   ========================= */
+
+.card{
+  padding: 0 !important;         /* ←これで画像の周りの余白が消える */
+  overflow: hidden !important;   /* ←角丸で画像を切る */
+  display: flex;
+  flex-direction: column;
+}
+
+/* 画像はカード上部にピッタリ */
+.card img{
+  border-radius: 0 !important;   /* ←カード側で丸めるので画像は不要 */
+  height: 170px;                 /* work-img と同じ高さに */
+  object-fit: cover;
+}
+
+/* 文字エリアにだけ余白をつける */
+.card h3,
+.card p{
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* 画像の下に少し余白 → 見出しとの距離 */
+.card h3{
+  margin-top: 14px !important;
+}
+
+/* カード下の余白（最後の行の下） */
+.card p{
+  padding-bottom: 18px;
+}
+
