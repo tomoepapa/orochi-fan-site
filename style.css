@@ -486,3 +486,46 @@ header.hero{
   width: min(1100px, calc(100% - 32px)) !important;
   margin: 0 auto !important;
 }
+
+/* =================================================
+   FIX 1) 枠が大きくなる問題：1100px化を打ち消す
+   ================================================= */
+.wrap{
+  max-width: 860px !important;
+  width: auto !important;
+  padding-top: 0 !important;     /* ←白い帯の原因も同時に消す */
+}
+.container{
+  width: min(860px, calc(100% - 32px)) !important;
+  max-width: 860px !important;
+}
+
+/* =================================================
+   FIX 2) ヒーロー直下から “すぐグレー” にする
+   ================================================= */
+/* 「オロチの秘密」セクション（あなたのHTMLは id="about"） */
+#about{
+  background: #f3f4f6 !important;
+
+  /* 画面端までグレーを伸ばす */
+  margin-left: calc(50% - 50vw) !important;
+  margin-right: calc(50% - 50vw) !important;
+
+  /* ヒーロー直下の白い隙間を消す */
+  margin-top: 0 !important;
+  padding-top: 44px !important;   /* グレー内の上余白（好みで調整） */
+  padding-bottom: 64px !important;
+}
+
+/* セクション共通の margin が #about に乗るのを止める */
+#about.section{
+  margin: 0 !important;
+}
+
+/* グレーの中身はいつもの幅(860px)に戻す */
+#about > .h2,
+#about > .grid{
+  width: min(860px, calc(100% - 32px)) !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
