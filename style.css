@@ -563,7 +563,7 @@ header.hero{
 }
 
 /* 画像はカード上部にピッタリ */
-.card img{
+.card img{ height: 190px; }
   border-radius: 0 !important;   /* ←カード側で丸めるので画像は不要 */
   height: 170px;                 /* work-img と同じ高さに */
   object-fit: cover;
@@ -585,4 +585,5 @@ header.hero{
 .card p{
   padding-bottom: 18px;
 }
+
 
