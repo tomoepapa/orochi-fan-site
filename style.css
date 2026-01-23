@@ -1,9 +1,21 @@
+/* =========================
+   Orochi Fan Site (LeeLee風) - style.css 完成版
+   ※このファイル1本に統合（重複/無駄を整理済み）
+   ========================= */
+
 :root{
   --text: rgba(0,0,0,0.78);
-  --muted: rgba(0,0,0,0.62);
+  --muted: rgba(0,0,0,0.60);
   --border: rgba(0,0,0,0.06);
+
+  --card-bg: #fff;
+  --radius-lg: 18px;
+
   --shadow: 0 10px 24px rgba(0,0,0,0.08);
-  --shadowHover: 0 18px 40px rgba(0,0,0,0.14);
+  --shadow-hover: 0 18px 40px rgba(0,0,0,0.14);
+
+  --btn-bg: #5a5a5a;
+  --btn-bg-hover: #787878;
 }
 
 *{ box-sizing:border-box; }
@@ -12,8 +24,8 @@ body{
   margin:0;
   font-family:"M PLUS Rounded 1c", system-ui, -apple-system, "Hiragino Kaku Gothic ProN", "Noto Sans JP", sans-serif;
   color: var(--text);
-  line-height: 1.75;
-  font-size: 15px;
+  line-height:1.75;
+  font-size:15px;
   background:#fff;
 }
 
@@ -23,27 +35,34 @@ body{
 .hero{
   position: relative;
   min-height: 620px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-  overflow: hidden;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:flex-start;
+  text-align:center;
+  overflow:hidden;
 
-  /* 背景を確実に表示 */
+  /* 背景：確実に反映（GitHub Pagesでも安全） */
   background: url("./assets/hero_bg.png") center / cover no-repeat;
+}
 
-  /* 画面いっぱい */
+/* 画面いっぱいに伸ばす（左右余白消し） */
+.hero{
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
 }
 
-/* 左上ピル */
+/* 最終保険（競合で負けた時に勝たせる） */
+header.hero{
+  background: url("./assets/hero_bg.png") center / cover no-repeat !important;
+}
+
+/* 左上のピル */
 .hero-badge{
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  padding: 10px 14px;
+  position:absolute;
+  top:16px;
+  left:16px;
+  padding:10px 14px;
   background: rgba(255,255,255,0.85);
   border: 1px solid rgba(255,255,255,0.6);
   border-radius: 999px;
@@ -66,7 +85,7 @@ body{
   text-shadow: 0 1px 0 rgba(255,255,255,0.25);
 }
 
-/* キャラ：ふわふわ */
+/* キャラ */
 .hero-chara{
   width: min(320px, 62vw);
   max-height: 360px;
@@ -82,7 +101,7 @@ body{
   100%{ transform: translateY(0); }
 }
 
-/* ヒーロー下 */
+/* ヒーロー下ブロック */
 .hero-bottom{
   width: min(860px, calc(100% - 32px));
   margin-top: 10px;
@@ -91,7 +110,7 @@ body{
 .hero-lead{
   margin: 10px 0 12px;
   font-size: 16px;
-  color: rgba(0,0,0,0.72);
+  color: rgba(0,0,0,0.75);
 }
 
 /* カウント */
@@ -105,11 +124,11 @@ body{
   backdrop-filter: blur(6px);
 }
 .label{ margin:0; color: var(--muted); font-size:13px; text-align:left; }
-.countdown{ margin-top: 6px; font-size: 18px; font-weight: 800; text-align:left; }
+.countdown{ margin-top: 6px; font-size:18px; font-weight:800; text-align:left; }
 .note{ margin: 6px 0 0; color: var(--muted); font-size:12px; text-align:left; }
 
 /* =========================
-   LAYOUT 共通
+   Layout / Section
    ========================= */
 .wrap{
   max-width: 860px;
@@ -121,18 +140,27 @@ body{
   margin: 58px 0 32px;
 }
 
-.h2{
-  margin: 0 0 18px;
+/* 共通：セクション見出し（中央・グレー寄り） */
+.h2,
+.section-title{
+  text-align: center;
   font-size: 26px;
   font-weight: 800;
-  text-align: center;
+  margin: 0 0 22px;
+  letter-spacing: 0.02em;
   color: rgba(0,0,0,0.68);
   text-shadow: 0 1px 0 rgba(255,255,255,0.55);
-  letter-spacing: 0.02em;
+  line-height: 1.25;
+}
+
+/* container（works用） */
+.container{
+  width: min(860px, calc(100% - 32px));
+  margin: 0 auto;
 }
 
 /* =========================
-   秘密カード（3枚）用
+   「オロチの秘密」カード（.grid .card）
    ========================= */
 .grid{
   display: grid;
@@ -141,34 +169,44 @@ body{
 }
 @media (min-width: 760px){
   .grid{ grid-template-columns: repeat(3, 1fr); }
+  .grid.links{ grid-template-columns: repeat(2, 1fr); }
 }
 
 .card{
-  background: #fff;
+  background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: 18px;
+  border-radius: var(--radius-lg);
   padding: 14px;
   box-shadow: var(--shadow);
   transition: transform .22s ease, box-shadow .22s ease;
-  overflow: hidden;
+  will-change: transform;
 }
 .card:hover{
-  transform: translateY(-6px);
-  box-shadow: var(--shadowHover);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-hover);
 }
 
-/* 画像サイズ統一 */
+/* 画像を揃える */
 .card img{
   width: 100%;
   height: 170px;
   object-fit: cover;
-  display: block;
+  display:block;
   border-radius: 14px;
 }
+
+/* 「オロチの秘密」内の文字：中央揃え（リーリーに合わせる） */
+.card h3,
+.card p{
+  text-align: center;
+}
+
+/* 文字サイズをリーリー寄りに少し大きめ */
 .card h3{
   margin: 12px 0 8px;
   font-size: 18px;
   font-weight: 800;
+  line-height: 1.35;
   color: rgba(0,0,0,0.78);
 }
 .card p{
@@ -179,23 +217,8 @@ body{
 }
 
 /* =========================
-   Works（リーリーと同じリンク集）
+   Works（テレビやYouTubeでも大活躍！）
    ========================= */
-.container{
-  width: min(860px, calc(100% - 32px));
-  margin: 0 auto;
-}
-
-.section-title{
-  text-align: center;
-  font-size: 26px;
-  font-weight: 800;
-  margin: 0 0 22px;
-  color: rgba(0,0,0,0.68);
-  text-shadow: 0 1px 0 rgba(255,255,255,0.55);
-  line-height: 1.25;
-}
-
 .works-grid{
   display: grid;
   gap: 18px;
@@ -205,11 +228,10 @@ body{
   .works-grid{ grid-template-columns: repeat(3, 1fr); }
 }
 
-/* カード：高さ揃え＋ホバーで浮く */
 .work-card{
-  background: #fff;
+  background: var(--card-bg);
   border: 1px solid var(--border);
-  border-radius: 18px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
 
   display: flex;
@@ -219,46 +241,54 @@ body{
   transition: transform .22s ease, box-shadow .22s ease;
   will-change: transform;
 }
+
+/* “枠が動く” */
 .work-card:hover,
 .work-card:focus-within{
   transform: translateY(-8px);
-  box-shadow: var(--shadowHover);
+  box-shadow: var(--shadow-hover);
 }
 
+/* 画像の高さ固定で統一 */
 .work-img{
   width: 100%;
   height: 170px;
   object-fit: cover;
-  display: block;
+  display:block;
 }
 
-/* 中央揃え＋ボタンを下に固定 */
+/* 中身：中央揃え＋高さ揃え */
 .work-content{
   padding: 16px 16px 18px;
   text-align: center;
 
-  display: flex;
+  display:flex;
   flex-direction: column;
   gap: 8px;
   flex: 1;
 }
+
+/* 見出し */
 .work-content h3{
   margin: 0;
   font-size: 18px;
   font-weight: 800;
+  color: rgba(0,0,0,0.78);
 }
+
+/* 説明文：高さを確保して各カードを揃える */
 .work-content p{
   margin: 0;
   color: rgba(0,0,0,0.72);
   line-height: 1.7;
 
-  /* 高さ差を吸収してボタン位置を揃える */
+  /* YouTube等で文章量が違っても高さが揃う */
   min-height: 4.2em;
 }
 
-/* ボタン：リーリー寄せ（グレー＋ホバーで少し明るく） */
+/* ボタン：リーリー寄せ（グレー）＋ホバーで明るく */
 .btn-link{
-  margin: auto auto 0;
+  margin: 10px auto 0;     /* 中央 */
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -266,18 +296,18 @@ body{
 
   padding: 10px 16px;
   border-radius: 999px;
+  text-decoration: none;
 
-  background: #5a5a5a;
+  background: var(--btn-bg);
   color: #fff;
   font-weight: 800;
   font-size: 14px;
-  text-decoration: none;
 
   box-shadow: none;
   transition: background-color .18s ease;
 }
 .btn-link:hover{
-  background: #787878;
+  background: var(--btn-bg-hover);
 }
 .btn-link::after{
   content: "↗";
@@ -285,8 +315,33 @@ body{
   opacity: .9;
 }
 
+/* ボタンを常にカード下部へ */
+.work-content .btn-link{
+  margin-top: auto;
+}
+
 /* =========================
-   footer
+   Links（もし使ってる場合）
+   ========================= */
+.linkcard{
+  display:block;
+  padding: 14px 16px;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  text-decoration:none;
+  color: rgba(0,0,0,0.78);
+  font-weight:800;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.linkcard:hover{
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(0,0,0,0.10);
+}
+
+/* =========================
+   Footer
    ========================= */
 .footer{
   margin-top: 40px;
@@ -302,7 +357,23 @@ body{
 }
 
 /* =========================
-   モバイル調整
+   Simple animation helpers
+   ========================= */
+.fade-in-up{
+  animation: fadeUp .6s ease both;
+}
+.delay-100{ animation-delay: .1s; }
+.delay-200{ animation-delay: .2s; }
+.delay-300{ animation-delay: .3s; }
+.delay-400{ animation-delay: .4s; }
+
+@keyframes fadeUp{
+  from{ opacity: 0; transform: translateY(10px); }
+  to{ opacity: 1; transform: translateY(0); }
+}
+
+/* =========================
+   Responsive
    ========================= */
 @media (max-width: 680px){
   .hero{ min-height: 560px; }
@@ -310,94 +381,7 @@ body{
   .hero-chara{ width: min(260px, 72vw); max-height: 320px; }
 
   .h2, .section-title{ font-size: 22px; }
-  .card img, .work-img{ height: 180px; }
+
+  .card img,
+  .work-img{ height: 180px; }
 }
-
-/* =========================
-   LeeLee寄せ：全体スケールUP（カード大きめ・余白多め・文字大きめ）
-   ========================= */
-
-/* コンテナを少し広げる（カードがゆったり見える） */
-.wrap{
-  max-width: 980px;
-}
-
-.container{
-  width: min(980px, calc(100% - 32px));
-}
-
-/* セクション見出しを少し大きく＆余白も増やす */
-.section{
-  margin: 72px 0 40px;
-}
-
-.h2,
-.section-title{
-  font-size: 30px;
-  margin-bottom: 28px;
-}
-
-/* グリッドの余白を増やす */
-.grid,
-.works-grid{
-  gap: 22px;
-}
-
-/* ===== 秘密カード（3枚）を大きめに ===== */
-.card{
-  padding: 18px;
-  border-radius: 20px;
-}
-
-.card img{
-  height: 200px;      /* ←大きめに */
-  border-radius: 16px;
-}
-
-.card h3{
-  font-size: 20px;
-  margin: 14px 0 10px;
-}
-
-.card p{
-  font-size: 15px;
-  line-height: 1.9;
-}
-
-/* ===== Worksカード（リンク集）を大きめに ===== */
-.work-card{
-  border-radius: 20px;
-}
-
-.work-img{
-  height: 200px;      /* ←大きめに */
-}
-
-.work-content{
-  padding: 18px 18px 22px;
-  gap: 10px;
-}
-
-.work-content h3{
-  font-size: 20px;
-}
-
-.work-content p{
-  font-size: 15px;
-  line-height: 1.9;
-  min-height: 4.8em;  /* ←文字が大きくなる分だけ少し増やす */
-}
-
-/* ボタンも少し大きく */
-.btn-link{
-  padding: 12px 18px;
-  font-size: 15px;
-}
-
-/* ===== スマホはやりすぎないように抑える ===== */
-@media (max-width: 680px){
-  .wrap{ max-width: 860px; } /* スマホは元に近い感じでOK */
-  .h2, .section-title{ font-size: 24px; }
-  .card img, .work-img{ height: 180px; }
-}
-
