@@ -382,3 +382,76 @@ body{
   .section-title{ font-size: 22px; }
   .work-img{ height: 180px; }
 }
+
+/* =========================
+   リーリー風：カードのホバー
+   ========================= */
+
+/* いまの.cardを「動く＋影ちょい」にする */
+.card,
+.work-card { /* work-cardを使ってる場合も両対応 */
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 18px;
+  overflow: hidden;
+
+  /* 影は普段は弱め */
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+/* カーソル乗せたら “枠が動く” */
+.card:hover,
+.work-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 36px rgba(0,0,0,0.14);
+}
+
+/* 画像の高さがバラバラに見えるのもリーリー寄せで揃える */
+.card img,
+.work-img {
+  width: 100%;
+  height: 170px;         /* 好みで160〜190で調整OK */
+  object-fit: cover;
+  display: block;
+}
+
+/* =========================
+   リーリー風：ボタンのホバー
+   ========================= */
+
+/* ボタン：普段は黒、ホバーでグレー（影はつけない） */
+.btn-link{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  padding: 10px 16px;
+  margin-top: 12px;
+
+  border-radius: 999px;
+  border: none;
+
+  background: #111;      /* 黒 */
+  color: #fff;           /* 白文字 */
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+
+  box-shadow: none;      /* ←影は消す（リーリーっぽく） */
+  transition: background-color .2s ease, transform .2s ease;
+}
+
+/* ホバーで黒→グレーに */
+.btn-link:hover{
+  background: #444;      /* グレー */
+  transform: translateY(-1px); /* “気持ち”だけ動かす（嫌なら消してOK） */
+}
+
+/* ↗ を付けたい場合（リーリーに合わせて） */
+.btn-link::after{
+  content:"↗";
+  font-size: 13px;
+  opacity: .9;
+}
