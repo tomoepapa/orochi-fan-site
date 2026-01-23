@@ -312,3 +312,91 @@ body{
   .h2, .section-title{ font-size: 22px; }
   .card img, .work-img{ height: 180px; }
 }
+
+/* =========================
+   LeeLee寄せ：全体スケールUP（カード大きめ・余白多め・文字大きめ）
+   ========================= */
+
+/* コンテナを少し広げる（カードがゆったり見える） */
+.wrap{
+  max-width: 980px;
+}
+
+.container{
+  width: min(980px, calc(100% - 32px));
+}
+
+/* セクション見出しを少し大きく＆余白も増やす */
+.section{
+  margin: 72px 0 40px;
+}
+
+.h2,
+.section-title{
+  font-size: 30px;
+  margin-bottom: 28px;
+}
+
+/* グリッドの余白を増やす */
+.grid,
+.works-grid{
+  gap: 22px;
+}
+
+/* ===== 秘密カード（3枚）を大きめに ===== */
+.card{
+  padding: 18px;
+  border-radius: 20px;
+}
+
+.card img{
+  height: 200px;      /* ←大きめに */
+  border-radius: 16px;
+}
+
+.card h3{
+  font-size: 20px;
+  margin: 14px 0 10px;
+}
+
+.card p{
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+/* ===== Worksカード（リンク集）を大きめに ===== */
+.work-card{
+  border-radius: 20px;
+}
+
+.work-img{
+  height: 200px;      /* ←大きめに */
+}
+
+.work-content{
+  padding: 18px 18px 22px;
+  gap: 10px;
+}
+
+.work-content h3{
+  font-size: 20px;
+}
+
+.work-content p{
+  font-size: 15px;
+  line-height: 1.9;
+  min-height: 4.8em;  /* ←文字が大きくなる分だけ少し増やす */
+}
+
+/* ボタンも少し大きく */
+.btn-link{
+  padding: 12px 18px;
+  font-size: 15px;
+}
+
+/* ===== スマホはやりすぎないように抑える ===== */
+@media (max-width: 680px){
+  .wrap{ max-width: 860px; } /* スマホは元に近い感じでOK */
+  .h2, .section-title{ font-size: 24px; }
+  .card img, .work-img{ height: 180px; }
+}
