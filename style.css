@@ -586,4 +586,44 @@ header.hero{
   padding-bottom: 18px;
 }
 
+/* =========================
+   オロチの秘密カードを Works と同サイズに揃える
+   ========================= */
+
+/* カード全体を flex にして高さを揃える */
+.card{
+  display: flex;
+  flex-direction: column;
+  height: 100%;                 /* ← これ重要 */
+}
+
+/* 画像サイズを Works と完全一致 */
+.card img{
+  height: 190px;                /* work-img と同じ */
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+/* テキストエリアを伸ばして高さを揃える */
+.card h3,
+.card p{
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+/* テキスト全体を包む“見えない余白”役 */
+.card h3{
+  margin-top: 14px;
+}
+
+.card p{
+  flex-grow: 1;                 /* ← 高さを揃える核心 */
+  padding-bottom: 18px;
+}
+
+/* グリッド側も高さ揃えを許可 */
+.grid{
+  align-items: stretch;
+}
+
 
