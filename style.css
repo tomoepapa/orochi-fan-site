@@ -385,3 +385,8 @@ header.hero{
   .card img,
   .work-img{ height: 180px; }
 }
+
+.nowrap{
+  white-space: nowrap;
+  display: inline-block;   /* これが効く：途中で割れなくなる */
+}
