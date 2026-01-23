@@ -390,3 +390,81 @@ header.hero{
   white-space: nowrap;
   display: inline-block;   /* これが効く：途中で割れなくなる */
 }
+
+/* =========================
+   サイズ感をリーリー寄せに戻す（幅を広げる）
+   ========================= */
+
+/* 860px制限を解除して、リーリーっぽく少し広く */
+.wrap,
+.container{
+  width: min(1100px, calc(100% - 32px)) !important;
+  max-width: none !important;
+  margin: 0 auto;
+}
+
+/* グリッドの“見た目の小ささ”は、列幅+余白でも出るので調整 */
+.grid,
+.works-grid{
+  gap: 22px !important;
+}
+
+/* works（テレビやYouTubeでも大活躍！）のカードを大きく見せる */
+.work-card{
+  border-radius: 22px !important;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.10) !important;
+}
+
+.work-img{
+  height: 190px !important; /* 170→190で少し大きく */
+}
+
+.work-content{
+  padding: 18px 18px 20px !important; /* 余白UP */
+}
+
+.work-content h3{
+  font-size: 20px !important; /* 文字を少し大きく */
+}
+
+.work-content p{
+  font-size: 15px !important;
+  line-height: 1.75 !important;
+}
+
+/* ボタンも少し大きく */
+.btn-link{
+  padding: 11px 18px !important;
+  font-size: 14px !important;
+}
+
+
+/* =========================
+   「リーリーの秘密」セクション背景をグレーに
+   ========================= */
+
+/* ① もし secrets というidがあるなら効く */
+#secrets{
+  background: #f3f4f6 !important;     /* リーリーっぽい薄グレー */
+  padding: 56px 0 64px !important;   /* 上下余白を増やす */
+}
+
+/* ② idが無くて class="section secrets" ならこっちで効く */
+.section.secrets{
+  background: #f3f4f6 !important;
+  padding: 56px 0 64px !important;
+}
+
+/* 背景が付くと中の余白が詰まって見えるので、中身の幅は維持 */
+#secrets .container,
+.section.secrets .container{
+  width: min(1100px, calc(100% - 32px)) !important;
+}
+
+/* スマホ時 */
+@media (max-width: 900px){
+  .works-grid{
+    grid-template-columns: 1fr !important;
+  }
+  .work-img{ height: 200px !important; }
+}
