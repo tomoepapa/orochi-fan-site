@@ -391,18 +391,6 @@ header.hero{
   display: inline-block;   /* これが効く：途中で割れなくなる */
 }
 
-/* =========================
-   サイズ感をリーリー寄せに戻す（幅を広げる）
-   ========================= */
-
-/* 860px制限を解除して、リーリーっぽく少し広く */
-.wrap,
-.container{
-  width: min(1100px, calc(100% - 32px)) !important;
-  max-width: none !important;
-  margin: 0 auto;
-}
-
 /* グリッドの“見た目の小ささ”は、列幅+余白でも出るので調整 */
 .grid,
 .works-grid{
@@ -529,3 +517,4 @@ header.hero{
   margin-left: auto !important;
   margin-right: auto !important;
 }
+
