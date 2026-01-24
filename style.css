@@ -315,3 +315,52 @@ body{
   transform: translateY(-8px);
   box-shadow: var(--shadow-hover);
 }
+
+/* ===============================
+   LeeLeeと同じ“カードの大きさ感”にする
+   =============================== */
+
+/* ▼ グリッド全体を少し広く使う */
+.works-grid,
+.grid{
+  gap: 28px;
+}
+
+/* ▼ カードそのものを大きく見せる */
+.card,
+.work-card{
+  border-radius: 26px;
+}
+
+/* ▼ 画像をさらに縦に大きく（←ここが一番効く） */
+.card img,
+.work-img{
+  height: 250px;   /* 220 → 250 */
+}
+
+/* ▼ 中の余白をリーリー並みに */
+.card h3,
+.work-content h3{
+  font-size: 22px;
+  margin-top: 20px;
+}
+
+.card p,
+.work-content p{
+  font-size: 16.5px;
+  line-height: 1.85;
+}
+
+/* ▼ テキストエリアの左右余白 */
+.card h3,
+.card p,
+.work-content{
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* ▼ ボタンも一回り大きく */
+.btn-link{
+  padding: 13px 22px;
+  font-size: 15px;
+}
