@@ -329,57 +329,59 @@ body{
 }
 
 /* =========================================
-   FINAL FIX: フッターをリーリー風に
-   - 背景を左右/下までグレー
-   - リンクは縦並び＋下線
+   Footer（LeeLee風）: これだけ残す
    ========================================= */
 
+/* sticky footer の土台 */
 html, body{
   height: 100%;
 }
-
 body{
+  margin: 0;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
-/* メイン（.wrap）が伸びて、フッターが最下部に来る */
+/* メインを伸ばしてフッターを最下部へ */
 .wrap{
   flex: 1;
 }
 
-/* フッターを「画面いっぱい」に広げる */
+/* フッター本体（画面いっぱいにグレー） */
 .footer{
-  background: #4a4a4a;              /* リーリーの濃いグレー寄せ */
+  background: #4a4a4a;
   color: #fff;
-  margin: 0 calc(50% - 50vw);        /* ←左右の白を消す（フルブリード） */
-  padding: 64px 0 56px;              /* 上下の余白もリーリー寄せ */
-}
-
-/* フッター内の文字を中央配置（幅はいつもの本文幅） */
-.footer{
   text-align: center;
+
+  /* 画面幅いっぱい（左右の白を消す） */
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  padding: 64px 16px 56px;
 }
 
-/* リンク：縦並び＋アンダーライン（…みたいな下線） */
+/* リンク：縦並び＋下線 */
 .footer a{
-  display: block;                    /* ←横並びを強制的に縦へ */
+  display: block;
   width: fit-content;
-  margin: 14px auto;                 /* 中央寄せ */
+  margin: 14px auto 0;
+
   color: #fff;
   font-weight: 800;
+  font-size: 15px;
   text-decoration: underline;
-  text-underline-offset: 8px;        /* 下線を少し離して“…”っぽく */
-  text-decoration-thickness: 2px;    /* 下線を少し太く */
+  text-underline-offset: 8px;
+  text-decoration-thickness: 2px;
   opacity: 0.95;
 }
 
-/* コピーライトの位置 */
-.footer .small,
-.footer small{
+/* コピーライト */
+.footer .copyright,
+.footer small,
+.footer .small{
   display: block;
   margin-top: 26px;
+  font-size: 13px;
   opacity: 0.75;
 }
-
