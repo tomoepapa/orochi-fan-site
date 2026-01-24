@@ -255,39 +255,56 @@ body{
 }
 
 /* =========================================
-   Footer（LeeLee 完全寄せ）
+   Footer（LeeLee 完全一致・最終版）
    ========================================= */
 
+/* ページ最下部までグレーにする */
+html, body{
+  min-height: 100%;
+}
+
+body{
+  margin: 0;
+  background: #4a4a4a;
+}
+
+/* フッター本体 */
 .footer{
-  margin-top: 0;
-  padding: 48px 16px 36px;
-  background: #4a4a4a;          /* リーリーと同系の濃いグレー */
+  background: #4a4a4a;
   color: #fff;
   text-align: center;
 
-  /* 画面いっぱいに広げる */
+  padding: 56px 16px 40px;
+
+  /* 画面幅いっぱい */
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
 }
 
-/* フッター内リンク */
+/* フッターリンク（点線アンダーバー） */
 .footer a{
-  display: block;
-  margin: 12px 0;
+  display: inline-block;
+  margin: 14px 0;
+
   color: #fff;
   text-decoration: none;
+
   font-weight: 700;
   font-size: 15px;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
+
+  /* ……っぽい下線 */
+  border-bottom: 1px dotted rgba(255,255,255,0.7);
+  padding-bottom: 4px;
 }
 
 .footer a:hover{
-  text-decoration: underline;
+  border-bottom-color: rgba(255,255,255,1);
 }
 
 /* コピーライト */
 .footer .copyright{
   margin-top: 28px;
   font-size: 13px;
-  opacity: 0.8;
+  opacity: 0.75;
 }
