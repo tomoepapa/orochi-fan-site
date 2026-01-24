@@ -255,46 +255,42 @@ body{
 }
 
 /* =========================================
-   Footer（LeeLee 完全一致・最終版）
+   Footer（LeeLee風・修正版）
    ========================================= */
 
-/* ページ最下部までグレーにする */
-html, body{
-  min-height: 100%;
-}
-
+/* ★ここ重要：bodyは白のまま！ */
 body{
-  margin: 0;
-  background: #4a4a4a;
+  background: #fff;
 }
 
-/* フッター本体 */
+/* フッター本体（ここだけグレー） */
 .footer{
   background: #4a4a4a;
   color: #fff;
   text-align: center;
 
-  padding: 56px 16px 40px;
+  /* 余白はリーリー寄り（多すぎたらここを減らす） */
+  padding: 46px 16px 34px;
 
   /* 画面幅いっぱい */
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
 }
 
-/* フッターリンク（点線アンダーバー） */
+/* リンクは必ず縦並びにする */
 .footer a{
-  display: inline-block;
-  margin: 14px 0;
+  display: block;                 /* ←横並びを防ぐ */
+  width: fit-content;             /* テキスト幅に合わせる */
+  margin: 14px auto 0;            /* 中央寄せ＋縦間隔 */
 
   color: #fff;
   text-decoration: none;
-
   font-weight: 700;
   font-size: 15px;
   letter-spacing: 0.03em;
 
-  /* ……っぽい下線 */
-  border-bottom: 1px dotted rgba(255,255,255,0.7);
+  /* ……っぽい点線下線 */
+  border-bottom: 1px dotted rgba(255,255,255,0.75);
   padding-bottom: 4px;
 }
 
@@ -304,7 +300,8 @@ body{
 
 /* コピーライト */
 .footer .copyright{
-  margin-top: 28px;
+  margin-top: 26px;
   font-size: 13px;
   opacity: 0.75;
 }
+
