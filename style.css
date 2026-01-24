@@ -305,3 +305,26 @@ body{
   opacity: 0.75;
 }
 
+/* =========================================
+   FIX: フッター下の白い余りをなくす（sticky footer）
+   ========================================= */
+html, body{
+  height: 100%;
+}
+
+body{
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* あなたの「メインの中身」を伸ばして、フッターを最下部へ */
+.wrap{
+  flex: 1;
+}
+
+/* 念のため：フッター直下の余白ゼロ */
+.footer{
+  margin: 0;
+}
+
