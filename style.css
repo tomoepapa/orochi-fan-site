@@ -253,3 +253,41 @@ body{
   .card img,
   .work-img{height:180px;}
 }
+
+/* =========================================
+   Footer（LeeLee 完全寄せ）
+   ========================================= */
+
+.footer{
+  margin-top: 0;
+  padding: 48px 16px 36px;
+  background: #4a4a4a;          /* リーリーと同系の濃いグレー */
+  color: #fff;
+  text-align: center;
+
+  /* 画面いっぱいに広げる */
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* フッター内リンク */
+.footer a{
+  display: block;
+  margin: 12px 0;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 15px;
+  letter-spacing: 0.02em;
+}
+
+.footer a:hover{
+  text-decoration: underline;
+}
+
+/* コピーライト */
+.footer .copyright{
+  margin-top: 28px;
+  font-size: 13px;
+  opacity: 0.8;
+}
