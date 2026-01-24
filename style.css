@@ -373,3 +373,62 @@ body{
   padding: 12px 20px;
   font-size: 15px;
 }
+
+/* ===============================
+   オロチの秘密カードを Works と完全に同サイズ・同設計に
+   =============================== */
+
+/* カード全体（サイズ・浮き方・角丸） */
+.card{
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 26px;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  box-shadow: 0 12px 28px rgba(0,0,0,0.10);
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+
+/* ホバー時：worksと同じ動き */
+.card:hover{
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.14);
+}
+
+/* 画像：works と完全一致 */
+.card img{
+  width: 100%;
+  height: 190px;        /* ← work-img と同じ */
+  object-fit: cover;
+  display: block;
+
+  /* 上だけ角丸（下は直線） */
+  border-radius: 26px 26px 0 0;
+}
+
+/* テキストエリア（余白も works と揃える） */
+.card h3,
+.card p{
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+}
+
+.card h3{
+  margin: 16px 0 8px;
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.card p{
+  margin: 0;
+  padding-bottom: 20px;
+  font-size: 15px;
+  line-height: 1.8;
+
+  /* 高さを揃えるため */
+  flex-grow: 1;
+}
