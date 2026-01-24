@@ -317,50 +317,59 @@ body{
 }
 
 /* ===============================
-   LeeLeeと同じ“カードの大きさ感”にする
+   LeeLee風に：縦長をやめて「横ゆったり」に寄せる
+   （※前回の“高さ250”ブロックは削除してこれに置き換え）
    =============================== */
 
-/* ▼ グリッド全体を少し広く使う */
-.works-grid,
-.grid{
-  gap: 28px;
+/* 全体の幅をリーリー寄りに少し広げる（←縦長解消に効く） */
+.wrap,
+.container{
+  max-width: 1100px;
 }
 
-/* ▼ カードそのものを大きく見せる */
+/* グリッド間隔（リーリーっぽい余白） */
+.grid,
+.works-grid{
+  gap: 26px;
+}
+
+/* カードの丸みは今のまま（見た目統一） */
 .card,
 .work-card{
   border-radius: 26px;
 }
 
-/* ▼ 画像をさらに縦に大きく（←ここが一番効く） */
+/* ★縦長の原因：画像高さを戻す（ここ重要） */
 .card img,
 .work-img{
-  height: 250px;   /* 220 → 250 */
+  height: 190px;         /* 250 → 190 に戻す */
+  object-fit: cover;
 }
 
-/* ▼ 中の余白をリーリー並みに */
+/* 文字は少しだけ大きく、余白を少し増やす（やりすぎない） */
 .card h3,
 .work-content h3{
-  font-size: 22px;
-  margin-top: 20px;
+  font-size: 20px;
 }
 
 .card p,
 .work-content p{
-  font-size: 16.5px;
-  line-height: 1.85;
+  font-size: 15px;
+  line-height: 1.8;
 }
 
-/* ▼ テキストエリアの左右余白 */
-.card h3,
-.card p,
 .work-content{
+  padding: 18px 20px 20px;
+}
+
+.card h3,
+.card p{
   padding-left: 20px;
   padding-right: 20px;
 }
 
-/* ▼ ボタンも一回り大きく */
+/* ボタンも少しだけ大きく */
 .btn-link{
-  padding: 13px 22px;
+  padding: 12px 20px;
   font-size: 15px;
 }
