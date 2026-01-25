@@ -393,3 +393,46 @@ body{
   opacity: 0.75;
 }
 
+/* ===== LeeLee風 カウントダウン見た目 ===== */
+.countdown-box{
+  width: fit-content;
+  margin: 18px auto 0;
+  padding: 16px 22px;
+
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(255,255,255,0.55);
+  border-radius: 18px;
+
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  backdrop-filter: blur(6px);
+
+  text-align: center;
+}
+
+/* 「人気が出るまであと」 */
+.countdown-box .label{
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(0,0,0,0.55);
+  letter-spacing: 0.06em;
+}
+
+/* 数字の行 */
+.countdown-box .countdown{
+  margin: 0;
+  font-size: 20px;
+  font-weight: 900;
+  color: rgba(0,0,0,0.72);
+
+  /* 桁ズレ防止（リーリーっぽくキレイに揃う） */
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+/* ちょい小さめにしたいなら（任意） */
+@media (max-width: 680px){
+  .countdown-box{ padding: 14px 18px; }
+  .countdown-box .countdown{ font-size: 18px; }
+}
+
