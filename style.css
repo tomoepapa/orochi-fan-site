@@ -439,7 +439,7 @@ body{
 /* ===== FIX: HERO下が切れる問題 ===== */
 .hero{
   /* 下に余白を足して、カウントボックスが切れないようにする */
-  padding-bottom: 110px;   /* 足りなければ 130px とかに上げてOK */
+  padding-bottom: 130px;   /* 足りなければ 130px とかに上げてOK */
 }
 
 /* hero内の下ブロックも、余白を確保 */
@@ -459,4 +459,5 @@ body{
     padding-bottom: 140px;
   }
 }
+
 
