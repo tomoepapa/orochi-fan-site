@@ -436,3 +436,27 @@ body{
   .countdown-box .countdown{ font-size: 18px; }
 }
 
+/* ===== FIX: HERO下が切れる問題 ===== */
+.hero{
+  /* 下に余白を足して、カウントボックスが切れないようにする */
+  padding-bottom: 110px;   /* 足りなければ 130px とかに上げてOK */
+}
+
+/* hero内の下ブロックも、余白を確保 */
+.hero-bottom{
+  padding-bottom: 0;       /* 既存の26pxは不要なら0でOK */
+  margin-bottom: 0;
+}
+
+/* カウントダウンBOXが下に張り付きすぎないように */
+.countdown-box{
+  margin-bottom: 12px;
+}
+
+/* スマホ時はさらに余白を足す（切れやすい） */
+@media (max-width: 680px){
+  .hero{
+    padding-bottom: 140px;
+  }
+}
+
