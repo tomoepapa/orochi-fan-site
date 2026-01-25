@@ -361,19 +361,26 @@ body{
   padding: 64px 16px 56px;
 }
 
-/* リンク：縦並び＋下線 */
 .footer a{
   display: block;
   width: fit-content;
-  margin: 14px auto 0;
+  margin: 14px auto;
 
   color: #fff;
   font-weight: 800;
   font-size: 15px;
-  text-decoration: underline;
-  text-underline-offset: 8px;
-  text-decoration-thickness: 2px;
-  opacity: 0.95;
+  letter-spacing: 0.03em;
+
+  /* 実線を完全に消す */
+  text-decoration: none;
+
+  /* リーリー風：点線のアンダーライン */
+  border-bottom: 1px dotted rgba(255,255,255,0.75);
+  padding-bottom: 6px;
+}
+
+.footer a:hover{
+  border-bottom-color: rgba(255,255,255,1);
 }
 
 /* コピーライト */
@@ -385,3 +392,4 @@ body{
   font-size: 13px;
   opacity: 0.75;
 }
+
