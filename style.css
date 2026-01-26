@@ -46,15 +46,57 @@ body{
   margin-right:calc(50% - 50vw);
 }
 
+/* ===== LeeLee完全寄せ：左上バッジ 最終版 ===== */
 .hero-badge{
-  position:absolute;
-  top:16px;
-  left:16px;
-  padding:10px 14px;
-  background:rgba(255,255,255,.85);
-  border-radius:999px;
-  font-weight:700;
+  position: absolute;
+
+  /* ← 端から離す（重要） */
+  top: 28px;
+  left: 32px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  padding: 14px 22px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+  backdrop-filter: blur(12px);
+
+  /* フォント調整（リーリー感の核心） */
+  font-family: "M PLUS Rounded 1c", system-ui, sans-serif;
+  font-size: 17px;          /* ← 少し大きく */
+  font-weight: 800;         /* ← しっかり太く */
+  letter-spacing: 0.04em;   /* ← これが超重要 */
+  color: rgba(0,0,0,0.78);
+  line-height: 1.2;
 }
+
+/* (from CNP) は「添え物」感を出す */
+.hero-badge span{
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: rgba(0,0,0,0.38);
+  transform: translateY(1px);
+}
+
+/* スマホ用 */
+@media (max-width: 680px){
+  .hero-badge{
+    top: 20px;
+    left: 20px;
+    padding: 12px 18px;
+    font-size: 15px;
+  }
+  .hero-badge span{
+    font-size: 11px;
+  }
+}
+
 
 .hero-topline{
   margin-top:92px;
@@ -551,28 +593,55 @@ body{
   }
 }
 
-/* ===== LeeLee寄せ：左上のバッジ（オロチ (from CNP) ファンサイト） ===== */
+/* ===== LeeLee完全寄せ：左上バッジ 最終版 ===== */
 .hero-badge{
   position: absolute;
-  top: 18px;
-  left: 18px;
+
+  /* ← 端から離す（重要） */
+  top: 28px;
+  left: 32px;
 
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 
-  padding: 10px 16px;
+  padding: 14px 22px;
   border-radius: 999px;
 
-  background: rgba(255,255,255,0.82);
-  border: 1px solid rgba(0,0,0,0.08);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.10);
-  backdrop-filter: blur(8px);
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+  backdrop-filter: blur(12px);
 
-  font-size: 14px;
-  font-weight: 800;
-  color: rgba(0,0,0,0.70);
+  /* フォント調整（リーリー感の核心） */
+  font-family: "M PLUS Rounded 1c", system-ui, sans-serif;
+  font-size: 17px;          /* ← 少し大きく */
+  font-weight: 800;         /* ← しっかり太く */
+  letter-spacing: 0.04em;   /* ← これが超重要 */
+  color: rgba(0,0,0,0.78);
+  line-height: 1.2;
+}
+
+/* (from CNP) は「添え物」感を出す */
+.hero-badge span{
+  font-size: 12px;
+  font-weight: 700;
   letter-spacing: 0.02em;
+  color: rgba(0,0,0,0.38);
+  transform: translateY(1px);
+}
+
+/* スマホ用 */
+@media (max-width: 680px){
+  .hero-badge{
+    top: 20px;
+    left: 20px;
+    padding: 12px 18px;
+    font-size: 15px;
+  }
+  .hero-badge span{
+    font-size: 11px;
+  }
 }
 
 /* (from CNP) を少し薄く＆小さめに */
@@ -595,30 +664,57 @@ body{
   }
 }
 
-/* ===== LeeLee寄せ：左上のバッジ（微調整版） ===== */
+/* ===== LeeLee完全寄せ：左上バッジ 最終版 ===== */
 .hero-badge{
   position: absolute;
-  top: 16px;
-  left: 16px;
+
+  /* ← 端から離す（重要） */
+  top: 28px;
+  left: 32px;
 
   display: inline-flex;
   align-items: center;
   gap: 10px;
 
-  padding: 12px 18px;
+  padding: 14px 22px;
   border-radius: 999px;
 
-  background: rgba(255,255,255,0.92);
-  border: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 12px 28px rgba(0,0,0,0.12);
-  backdrop-filter: blur(10px);
+  background: rgba(255,255,255,0.95);
+  border: 1px solid rgba(0,0,0,0.05);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+  backdrop-filter: blur(12px);
 
-  font-size: 16px;          /* ←少し大きく */
-  font-weight: 800;         /* ←太め */
-  color: rgba(0,0,0,0.78);  /* ←濃いめ */
-  letter-spacing: 0.01em;
-  line-height: 1;
+  /* フォント調整（リーリー感の核心） */
+  font-family: "M PLUS Rounded 1c", system-ui, sans-serif;
+  font-size: 17px;          /* ← 少し大きく */
+  font-weight: 800;         /* ← しっかり太く */
+  letter-spacing: 0.04em;   /* ← これが超重要 */
+  color: rgba(0,0,0,0.78);
+  line-height: 1.2;
 }
+
+/* (from CNP) は「添え物」感を出す */
+.hero-badge span{
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: rgba(0,0,0,0.38);
+  transform: translateY(1px);
+}
+
+/* スマホ用 */
+@media (max-width: 680px){
+  .hero-badge{
+    top: 20px;
+    left: 20px;
+    padding: 12px 18px;
+    font-size: 15px;
+  }
+  .hero-badge span{
+    font-size: 11px;
+  }
+}
+
 
 /* (from CNP) をもっと小さく・薄く */
 .hero-badge span{
@@ -640,5 +736,6 @@ body{
     font-size: 11px;
   }
 }
+
 
 
