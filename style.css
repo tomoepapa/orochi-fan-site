@@ -507,4 +507,26 @@ body{
   }
 }
 
+/* ===== LeeLee風：ヒーローの説明文（この、ふわっと〜だれ？） ===== */
+.hero-lead{
+  margin: 14px auto 0;             /* 上の余白 */
+  max-width: 720px;
+
+  font-size: 14px;                 /* 16px → 14px に */
+  font-weight: 700;
+  color: rgba(0,0,0,0.62);
+  letter-spacing: 0.06em;
+  line-height: 1.9;
+
+  text-align: center;
+}
+
+/* スマホは少し小さく */
+@media (max-width: 680px){
+  .hero-lead{
+    font-size: 13px;
+    max-width: 86vw;
+  }
+}
+
 
