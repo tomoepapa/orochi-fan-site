@@ -529,4 +529,26 @@ body{
   }
 }
 
+/* ===== LeeLee寄せ：この、ふわっと〜だれ？（大きめ・太め・2行） ===== */
+.hero-lead{
+  margin: 18px auto 10px;
+  text-align: center;
+
+  font-size: 20px;          /* ←リーリーっぽく大きめ */
+  font-weight: 800;         /* ←太め */
+  line-height: 1.7;
+  letter-spacing: 0.06em;
+  color: rgba(0,0,0,0.62);
+
+  /* 背景に負けない“ふわっと影” */
+  text-shadow: 0 2px 10px rgba(255,255,255,0.75);
+}
+
+/* スマホは少しだけ小さく */
+@media (max-width: 680px){
+  .hero-lead{
+    font-size: 18px;
+  }
+}
+
 
