@@ -10,665 +10,53 @@
   --border: rgba(0,0,0,0.06);
 
   --bg-gray: #f3f4f6;
-
   --radius: 26px;
 
   --shadow: 0 12px 28px rgba(0,0,0,0.10);
   --shadow-hover: 0 18px 40px rgba(0,0,0,0.14);
-
-  --btn-bg: #5a5a5a;
-  --btn-bg-hover: #787878;
 }
 
 *{ box-sizing:border-box; }
 
+html, body{
+  margin: 0;
+  padding: 0;
+}
+
 body{
-  margin:0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+
   font-family:"M PLUS Rounded 1c", system-ui, -apple-system,
     "Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
-  color:var(--text);
-  line-height:1.75;
-  font-size:15px;
-  background:#fff;
+
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--text);
+  background: #fff;
 }
 
 /* =========================================
    HERO
    ========================================= */
 .hero{
-  position:relative;
-  min-height:620px;
-  text-align:center;
-  background:url("./assets/hero_bg.png") center/cover no-repeat;
-  overflow:hidden;
-
-  margin-left:calc(50% - 50vw);
-  margin-right:calc(50% - 50vw);
-}
-
-/* ===== LeeLee完全寄せ：左上バッジ 最終版 ===== */
-.hero-badge{
-  position: absolute;
-
-  /* ← 端から離す（重要） */
-  top: 28px;
-  left: 32px;
-
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-
-  padding: 14px 22px;
-  border-radius: 999px;
-
-  background: rgba(255,255,255,0.95);
-  border: 1px solid rgba(0,0,0,0.05);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
-  backdrop-filter: blur(12px);
-
-  /* フォント調整（リーリー感の核心） */
-  font-family: "M PLUS Rounded 1c", system-ui, sans-serif;
-  font-size: 17px;          /* ← 少し大きく */
-  font-weight: 800;         /* ← しっかり太く */
-  letter-spacing: 0.04em;   /* ← これが超重要 */
-  color: rgba(0,0,0,0.78);
-  line-height: 1.2;
-}
-
-/* (from CNP) は「添え物」感を出す */
-.hero-badge span{
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: rgba(0,0,0,0.38);
-  transform: translateY(1px);
-}
-
-/* スマホ用 */
-@media (max-width: 680px){
-  .hero-badge{
-    top: 20px;
-    left: 20px;
-    padding: 12px 18px;
-    font-size: 15px;
-  }
-  .hero-badge span{
-    font-size: 11px;
-  }
-}
-
-
-.hero-topline{
-  margin-top:92px;
-  font-size:34px;
-  font-weight:800;
-  color:rgba(0,0,0,.65);
-}
-
-.hero-chara{
-  width:min(320px,62vw);
-  margin-top:18px;
-  filter:drop-shadow(0 16px 16px rgba(0,0,0,.2));
-  animation:floaty 4.6s ease-in-out infinite;
-}
-
-@keyframes floaty{
-  0%{transform:translateY(0);}
-  50%{transform:translateY(-14px);}
-  100%{transform:translateY(0);}
-}
-
-.hero-bottom{
-  max-width:1100px;
-  margin:10px auto 0;
-  padding-bottom:26px;
-}
-
-/* =========================================
-   共通レイアウト
-   ========================================= */
-.wrap{
-  max-width:1100px;
-  margin:0 auto;
-  padding:0 16px 64px;
-}
-
-.section{
-  margin:64px 0;
-}
-
-.h2,
-.section-title{
-  text-align:center;
-  font-size:26px;
-  font-weight:800;
-  margin-bottom:24px;
-  color:rgba(0,0,0,.68);
-}
-
-/* =========================================
-   Secrets（グレー背景）
-   ========================================= */
-.section.secrets{
-  background:var(--bg-gray);
-  margin:0 calc(50% - 50vw);
-  padding:64px 0;
-}
-
-.section.secrets .h2,
-.section.secrets .grid{
-  max-width:1100px;
-  margin-left:auto;
-  margin-right:auto;
-}
-
-/* ---------- グリッド ---------- */
-.grid,
-.works-grid{
-  display:grid;
-  gap:26px;
-}
-
-@media(min-width:760px){
-  .grid,
-  .works-grid{
-    grid-template-columns:repeat(3,1fr);
-  }
-}
-
-/* =========================================
-   共通カード設計（Secrets / Works）
-   ========================================= */
-.card,
-.work-card{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  overflow:hidden;
-
-  display:flex;
-  flex-direction:column;
-
-  box-shadow:var(--shadow);
-  transition:transform .22s ease, box-shadow .22s ease;
-}
-
-/* 両方とも浮く */
-.card:hover,
-.work-card:hover{
-  transform:translateY(-8px);
-  box-shadow:var(--shadow-hover);
-}
-
-/* ---------- 画像（上だけ角丸） ---------- */
-.card img,
-.work-img{
-  width:100%;
-  height:190px;
-  object-fit:cover;
-  display:block;
-  border-radius:var(--radius) var(--radius) 0 0;
-}
-
-/* ---------- Secrets テキスト ---------- */
-.card h3{
-  margin:16px 0 8px;
-  padding:0 20px;
-  font-size:20px;
-  font-weight:800;
-  text-align:center;
-}
-
-.card p{
-  margin:0;
-  padding:0 20px 20px;
-  font-size:15px;
-  line-height:1.8;
-  text-align:center;
-  flex-grow:1;
-}
-
-/* ---------- Works ---------- */
-.work-content{
-  padding:18px 20px 20px;
-  text-align:center;
-  display:flex;
-  flex-direction:column;
-  flex:1;
-}
-
-.work-content h3{
-  margin:0 0 6px;
-  font-size:20px;
-  font-weight:800;
-}
-
-.work-content p{
-  margin:0;
-  font-size:15px;
-  line-height:1.8;
-  flex-grow:1;
-}
-
-/* ---------- ボタン ---------- */
-.btn-link{
-  margin:16px auto 0;
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  padding:12px 20px;
-  border-radius:999px;
-  background:var(--btn-bg);
-  color:#fff;
-  text-decoration:none;
-  font-weight:800;
-  font-size:15px;
-}
-
-.btn-link:hover{
-  background:var(--btn-bg-hover);
-}
-
-.btn-link::after{
-  content:"↗";
-  font-size:13px;
-}
-
-/* =========================================
-   Utility
-   ========================================= */
-.nowrap{
-  white-space:nowrap;
-  display:inline-block;
-}
-
-/* =========================================
-   Responsive
-   ========================================= */
-@media(max-width:680px){
-  .hero{min-height:560px;}
-  .hero-topline{font-size:26px;}
-  .hero-chara{width:min(260px,72vw);}
-
-  .h2,.section-title{font-size:22px;}
-
-  .card img,
-  .work-img{height:180px;}
-}
-
-/* =========================================
-   Footer（LeeLee風・修正版）
-   ========================================= */
-
-/* ★ここ重要：bodyは白のまま！ */
-body{
-  background: #fff;
-}
-
-/* フッター本体（ここだけグレー） */
-.footer{
-  background: #4a4a4a;
-  color: #fff;
+  position: relative;
   text-align: center;
 
-  /* 余白はリーリー寄り（多すぎたらここを減らす） */
-  padding: 46px 16px 34px;
+  background: url("./assets/hero_bg.png") center / cover no-repeat;
 
   /* 画面幅いっぱい */
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
+
+  /* 下に余白を確保（←これが重要） */
+  padding-bottom: 96px;
 }
 
-/* リンクは必ず縦並びにする */
-.footer a{
-  display: block;                 /* ←横並びを防ぐ */
-  width: fit-content;             /* テキスト幅に合わせる */
-  margin: 14px auto 0;            /* 中央寄せ＋縦間隔 */
-
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 15px;
-  letter-spacing: 0.03em;
-
-  /* ……っぽい点線下線 */
-  border-bottom: 1px dotted rgba(255,255,255,0.75);
-  padding-bottom: 4px;
-}
-
-.footer a:hover{
-  border-bottom-color: rgba(255,255,255,1);
-}
-
-/* コピーライト */
-.footer .copyright{
-  margin-top: 26px;
-  font-size: 13px;
-  opacity: 0.75;
-}
-
-/* =========================================
-   FIX: フッター下の白い余りをなくす（sticky footer）
-   ========================================= */
-html, body{
-  height: 100%;
-}
-
-body{
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* あなたの「メインの中身」を伸ばして、フッターを最下部へ */
-.wrap{
-  flex: 1;
-}
-
-/* 念のため：フッター直下の余白ゼロ */
-.footer{
-  margin: 0;
-}
-
-/* =========================================
-   Footer（LeeLee風）: これだけ残す
-   ========================================= */
-
-/* sticky footer の土台 */
-html, body{
-  height: 100%;
-}
-body{
-  margin: 0;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
-/* メインを伸ばしてフッターを最下部へ */
-.wrap{
-  flex: 1;
-}
-
-/* フッター本体（画面いっぱいにグレー） */
-.footer{
-  background: #4a4a4a;
-  color: #fff;
-  text-align: center;
-
-  /* 画面幅いっぱい（左右の白を消す） */
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-
-  padding: 64px 16px 56px;
-}
-
-.footer a{
-  display: block;
-  width: fit-content;
-  margin: 14px auto;
-
-  color: #fff;
-  font-weight: 800;
-  font-size: 15px;
-  letter-spacing: 0.03em;
-
-  /* 実線を完全に消す */
-  text-decoration: none;
-
-  /* リーリー風：点線のアンダーライン */
-  border-bottom: 1px dotted rgba(255,255,255,0.75);
-  padding-bottom: 6px;
-}
-
-.footer a:hover{
-  border-bottom-color: rgba(255,255,255,1);
-}
-
-/* コピーライト */
-.footer .copyright,
-.footer small,
-.footer .small{
-  display: block;
-  margin-top: 26px;
-  font-size: 13px;
-  opacity: 0.75;
-}
-
-/* ===== LeeLee風 カウントダウン見た目 ===== */
-.countdown-box{
-  width: fit-content;
-  margin: 18px auto 0;
-  padding: 16px 22px;
-
-  background: rgba(255,255,255,0.78);
-  border: 1px solid rgba(255,255,255,0.55);
-  border-radius: 18px;
-
-  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-  backdrop-filter: blur(6px);
-
-  text-align: center;
-}
-
-/* 「人気が出るまであと」 */
-.countdown-box .label{
-  margin: 0 0 10px;
-  font-size: 13px;
-  font-weight: 700;
-  color: rgba(0,0,0,0.55);
-  letter-spacing: 0.06em;
-}
-
-/* 数字の行 */
-.countdown-box .countdown{
-  margin: 0;
-  font-size: 20px;
-  font-weight: 900;
-  color: rgba(0,0,0,0.72);
-
-  /* 桁ズレ防止（リーリーっぽくキレイに揃う） */
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.04em;
-}
-
-/* ちょい小さめにしたいなら（任意） */
-@media (max-width: 680px){
-  .countdown-box{ padding: 14px 18px; }
-  .countdown-box .countdown{ font-size: 18px; }
-}
-
-/* ===== FIX: HERO下が切れる問題 ===== */
-.hero{
-  /* 下に余白を足して、カウントボックスが切れないようにする */
-  padding-bottom: 130px;   /* 足りなければ 130px とかに上げてOK */
-}
-
-/* hero内の下ブロックも、余白を確保 */
-.hero-bottom{
-  padding-bottom: 0;       /* 既存の26pxは不要なら0でOK */
-  margin-bottom: 0;
-}
-
-/* カウントダウンBOXが下に張り付きすぎないように */
-.countdown-box{
-  margin-bottom: 12px;
-}
-
-/* スマホ時はさらに余白を足す（切れやすい） */
-@media (max-width: 680px){
-  .hero{
-    padding-bottom: 140px;
-  }
-}
-
-/* ===== HERO: カウントダウンが下で切れるのを完全に止める ===== */
-.hero{
-  overflow: visible !important;     /* ←これが本命（hiddenで切れてた） */
-  padding-bottom: 180px !important; /* 念のため余白も増やす */
-}
-
-.hero-bottom{
-  padding-bottom: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-/* スマホはさらに余白 */
-@media (max-width: 680px){
-  .hero{
-    padding-bottom: 220px !important;
-  }
-}
-
-/* ===== FIX: カウントダウンBOXがヒーロー背景からはみ出す問題 ===== */
-/* 目的：背景(ヒーロー)を下に伸ばして、BOXをヒーロー内に収める */
-
-.hero{
-  overflow: hidden !important;     /* ← visible を打ち消して背景内に収める */
-  padding-bottom: 220px !important;/* ← ヒーローを下に伸ばす（ここが本命） */
-  min-height: 760px !important;    /* ← 余裕を追加（不要なら後で下げてOK） */
-}
-
-/* 中身が前に詰まりすぎないように */
-.hero-bottom{
-  padding-bottom: 0 !important;
-  margin-bottom: 0 !important;
-}
-
-/* BOXは普通に中央に置く（変なズレ防止） */
-.countdown-box{
-  position: relative !important;
-  margin: 18px auto 0 !important;
-}
-
-/* スマホはさらに切れやすいので少し増やす */
-@media (max-width: 680px){
-  .hero{
-    padding-bottom: 260px !important;
-    min-height: 780px !important;
-  }
-}
-
-/* ===== LeeLee風：ヒーローの説明文（この、ふわっと〜だれ？） ===== */
-.hero-lead{
-  margin: 14px auto 0;             /* 上の余白 */
-  max-width: 720px;
-
-  font-size: 14px;                 /* 16px → 14px に */
-  font-weight: 700;
-  color: rgba(0,0,0,0.62);
-  letter-spacing: 0.06em;
-  line-height: 1.9;
-
-  text-align: center;
-}
-
-/* スマホは少し小さく */
-@media (max-width: 680px){
-  .hero-lead{
-    font-size: 13px;
-    max-width: 86vw;
-  }
-}
-
-/* ===== LeeLee寄せ：この、ふわっと〜だれ？（大きめ・太め・2行） ===== */
-.hero-lead{
-  margin: 18px auto 10px;
-  text-align: center;
-
-  font-size: 20px;          /* ←リーリーっぽく大きめ */
-  font-weight: 800;         /* ←太め */
-  line-height: 1.7;
-  letter-spacing: 0.06em;
-  color: rgba(0,0,0,0.62);
-
-  /* 背景に負けない“ふわっと影” */
-  text-shadow: 0 2px 10px rgba(255,255,255,0.75);
-}
-
-/* スマホは少しだけ小さく */
-@media (max-width: 680px){
-  .hero-lead{
-    font-size: 18px;
-  }
-}
-
-/* ===== LeeLee完全寄せ：左上バッジ 最終版 ===== */
+/* ---------- 左上バッジ（LeeLee寄せ） ---------- */
 .hero-badge{
   position: absolute;
-
-  /* ← 端から離す（重要） */
-  top: 28px;
-  left: 32px;
-
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-
-  padding: 14px 22px;
-  border-radius: 999px;
-
-  background: rgba(255,255,255,0.95);
-  border: 1px solid rgba(0,0,0,0.05);
-  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
-  backdrop-filter: blur(12px);
-
-  /* フォント調整（リーリー感の核心） */
-  font-family: "M PLUS Rounded 1c", system-ui, sans-serif;
-  font-size: 17px;          /* ← 少し大きく */
-  font-weight: 800;         /* ← しっかり太く */
-  letter-spacing: 0.04em;   /* ← これが超重要 */
-  color: rgba(0,0,0,0.78);
-  line-height: 1.2;
-}
-
-/* (from CNP) は「添え物」感を出す */
-.hero-badge span{
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  color: rgba(0,0,0,0.38);
-  transform: translateY(1px);
-}
-
-/* スマホ用 */
-@media (max-width: 680px){
-  .hero-badge{
-    top: 20px;
-    left: 20px;
-    padding: 12px 18px;
-    font-size: 15px;
-  }
-  .hero-badge span{
-    font-size: 11px;
-  }
-}
-
-/* (from CNP) を少し薄く＆小さめに */
-.hero-badge span{
-  font-size: 13px;
-  font-weight: 700;
-  color: rgba(0,0,0,0.45);
-}
-
-/* スマホは少し小さく */
-@media (max-width: 680px){
-  .hero-badge{
-    top: 12px;
-    left: 12px;
-    padding: 9px 14px;
-    font-size: 13px;
-  }
-  .hero-badge span{
-    font-size: 12px;
-  }
-}
-
-/* ===== LeeLee完全寄せ：左上バッジ 最終版 ===== */
-.hero-badge{
-  position: absolute;
-
-  /* ← 端から離す（重要） */
   top: 32px;
   left: 38px;
 
@@ -684,25 +72,143 @@ body{
   box-shadow: 0 10px 24px rgba(0,0,0,0.12);
   backdrop-filter: blur(12px);
 
-  /* フォント調整（リーリー感の核心） */
-  font-family: "M PLUS Rounded 1c", system-ui, sans-serif;
-  font-size: 17px;          /* ← 少し大きく */
-  font-weight: 800;         /* ← しっかり太く */
-  letter-spacing: 0.04em;   /* ← これが超重要 */
-  color: rgba(0,0,0,0.78);
+  font-size: 17px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
   line-height: 1.2;
 }
 
-/* (from CNP) は「添え物」感を出す */
 .hero-badge span{
   font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.02em;
   color: rgba(0,0,0,0.38);
-  transform: translateY(1px);
 }
 
-/* スマホ用 */
+/* ---------- 上の一言 ---------- */
+.hero-topline{
+  margin-top: 96px;
+  font-size: 34px;
+  font-weight: 800;
+  color: rgba(0,0,0,0.65);
+}
+
+/* ---------- キャラ ---------- */
+.hero-chara{
+  width: min(320px, 62vw);
+  margin-top: 20px;
+
+  filter: drop-shadow(0 16px 16px rgba(0,0,0,.2));
+  animation: floaty 4.6s ease-in-out infinite;
+}
+
+@keyframes floaty{
+  0%{ transform: translateY(0); }
+  50%{ transform: translateY(-14px); }
+  100%{ transform: translateY(0); }
+}
+
+/* ---------- 下ブロック ---------- */
+.hero-bottom{
+  margin-top: 16px;
+}
+
+/* 説明文 */
+.hero-lead{
+  margin: 18px auto 12px;
+  max-width: 720px;
+
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.7;
+  letter-spacing: 0.06em;
+
+  color: rgba(0,0,0,0.62);
+  text-shadow: 0 2px 10px rgba(255,255,255,0.75);
+}
+
+/* ---------- カウントダウン ---------- */
+.countdown-box{
+  width: fit-content;
+  margin: 18px auto 32px; /* ←下余白はここで作る */
+
+  padding: 16px 22px;
+  text-align: center;
+
+  background: rgba(255,255,255,0.78);
+  border: 1px solid rgba(255,255,255,0.55);
+  border-radius: 18px;
+
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  backdrop-filter: blur(6px);
+}
+
+.countdown-box .label{
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: rgba(0,0,0,0.55);
+}
+
+.countdown-box .countdown{
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+/* =========================================
+   共通レイアウト
+   ========================================= */
+.wrap{
+  flex: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 16px 64px;
+}
+
+/* =========================================
+   Footer（LeeLee風）
+   ========================================= */
+.footer{
+  background: #4a4a4a;
+  color: #fff;
+  text-align: center;
+
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+
+  padding: 64px 16px 56px;
+}
+
+.footer a{
+  display: block;
+  width: fit-content;
+  margin: 14px auto;
+
+  color: #fff;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+
+  border-bottom: 1px dotted rgba(255,255,255,0.75);
+  padding-bottom: 6px;
+}
+
+.footer a:hover{
+  border-bottom-color: rgba(255,255,255,1);
+}
+
+.footer .copyright{
+  margin-top: 26px;
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+/* =========================================
+   Responsive
+   ========================================= */
 @media (max-width: 680px){
   .hero-badge{
     top: 20px;
@@ -710,34 +216,21 @@ body{
     padding: 12px 18px;
     font-size: 15px;
   }
-  .hero-badge span{
-    font-size: 11px;
+
+  .hero-topline{
+    font-size: 26px;
+    margin-top: 84px;
+  }
+
+  .hero-chara{
+    width: min(260px, 72vw);
+  }
+
+  .hero-lead{
+    font-size: 18px;
+  }
+
+  .countdown-box{
+    padding: 14px 18px;
   }
 }
-
-
-/* (from CNP) をもっと小さく・薄く */
-.hero-badge span{
-  font-size: 12px;
-  font-weight: 700;
-  color: rgba(0,0,0,0.38);
-  transform: translateY(1px); /* ベースライン微調整 */
-}
-
-/* スマホ時 */
-@media (max-width: 680px){
-  .hero-badge{
-    top: 12px;
-    left: 12px;
-    padding: 10px 14px;
-    font-size: 14px;
-  }
-  .hero-badge span{
-    font-size: 11px;
-  }
-}
-
-
-
-
-
