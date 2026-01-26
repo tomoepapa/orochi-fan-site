@@ -478,4 +478,33 @@ body{
   }
 }
 
+/* ===== FIX: カウントダウンBOXがヒーロー背景からはみ出す問題 ===== */
+/* 目的：背景(ヒーロー)を下に伸ばして、BOXをヒーロー内に収める */
+
+.hero{
+  overflow: hidden !important;     /* ← visible を打ち消して背景内に収める */
+  padding-bottom: 220px !important;/* ← ヒーローを下に伸ばす（ここが本命） */
+  min-height: 760px !important;    /* ← 余裕を追加（不要なら後で下げてOK） */
+}
+
+/* 中身が前に詰まりすぎないように */
+.hero-bottom{
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* BOXは普通に中央に置く（変なズレ防止） */
+.countdown-box{
+  position: relative !important;
+  margin: 18px auto 0 !important;
+}
+
+/* スマホはさらに切れやすいので少し増やす */
+@media (max-width: 680px){
+  .hero{
+    padding-bottom: 260px !important;
+    min-height: 780px !important;
+  }
+}
+
 
