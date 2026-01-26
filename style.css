@@ -389,3 +389,25 @@ body{
 .hero{
   padding-bottom: 56px !important; /* 84px → 56px */
 }
+
+/* =========================================
+   FIX 最終：白い余白を完全になくす
+   ========================================= */
+
+/* ヒーローは「中身の高さ＋α」だけで決める */
+.hero{
+  overflow: hidden;
+  padding-bottom: 96px;      /* カウントダウン分だけ */
+  min-height: auto;          /* ← 固定高さは全部やめる */
+}
+
+/* hero直下の main 側の余白を完全に消す */
+.wrap{
+  padding-top: 0;
+  margin-top: 0;
+}
+
+/* 最初のセクションだけ、意図した余白をつける */
+.wrap > .section:first-child{
+  margin-top: 64px;
+}
