@@ -372,3 +372,20 @@ body{
     padding:14px 18px;
   }
 }
+
+/* ===== FIX: ヒーロー下の白い余白を消す ===== */
+
+/* main の上余白を減らす（白い帯の原因） */
+.wrap{
+  padding-top: 0 !important;
+}
+
+/* 次の見出しがヒーローに近すぎたら、最初のsectionだけ余白を足す */
+.wrap > .section:first-child{
+  margin-top: 56px;
+}
+
+/* さらに白が残る場合は、heroの下余白を少し減らす */
+.hero{
+  padding-bottom: 56px !important; /* 84px → 56px */
+}
