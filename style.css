@@ -669,8 +669,8 @@ body{
   position: absolute;
 
   /* ← 端から離す（重要） */
-  top: 28px;
-  left: 32px;
+  top: 40px;
+  left: 40px;
 
   display: inline-flex;
   align-items: center;
@@ -736,6 +736,7 @@ body{
     font-size: 11px;
   }
 }
+
 
 
 
