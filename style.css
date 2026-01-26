@@ -551,4 +551,48 @@ body{
   }
 }
 
+/* ===== LeeLee寄せ：左上のバッジ（オロチ (from CNP) ファンサイト） ===== */
+.hero-badge{
+  position: absolute;
+  top: 18px;
+  left: 18px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 16px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.82);
+  border: 1px solid rgba(0,0,0,0.08);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.10);
+  backdrop-filter: blur(8px);
+
+  font-size: 14px;
+  font-weight: 800;
+  color: rgba(0,0,0,0.70);
+  letter-spacing: 0.02em;
+}
+
+/* (from CNP) を少し薄く＆小さめに */
+.hero-badge span{
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(0,0,0,0.45);
+}
+
+/* スマホは少し小さく */
+@media (max-width: 680px){
+  .hero-badge{
+    top: 12px;
+    left: 12px;
+    padding: 9px 14px;
+    font-size: 13px;
+  }
+  .hero-badge span{
+    font-size: 12px;
+  }
+}
+
 
