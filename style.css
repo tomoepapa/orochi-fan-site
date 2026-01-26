@@ -460,4 +460,22 @@ body{
   }
 }
 
+/* ===== HERO: カウントダウンが下で切れるのを完全に止める ===== */
+.hero{
+  overflow: visible !important;     /* ←これが本命（hiddenで切れてた） */
+  padding-bottom: 180px !important; /* 念のため余白も増やす */
+}
+
+.hero-bottom{
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* スマホはさらに余白 */
+@media (max-width: 680px){
+  .hero{
+    padding-bottom: 220px !important;
+  }
+}
+
 
