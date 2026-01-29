@@ -43,7 +43,7 @@ img{ display:block; max-width:100%; height:auto; }
 .hero{
   position: relative;
   text-align: center;
-  background: url("./assets/hero_bg.png") center/cover no-repeat;
+  background: url("./assets/hero_bg.jpg") center/cover no-repeat;
 
   /* ✅背景を画面幅いっぱい */
   margin-left: calc(50% - 50vw);
@@ -397,3 +397,4 @@ img{ display:block; max-width:100%; height:auto; }
 
   .card img,.work-img{ height: 180px; }
 }
+
