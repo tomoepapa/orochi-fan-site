@@ -54,6 +54,22 @@ img{ display:block; max-width:100%; height:auto; }
   overflow: hidden;
 }
 
+/* ===== 読みやすさUP：ヒーロー背景に薄いベール ===== */
+.hero::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background: rgba(255,255,255,0.55); /* 白いベール（ふんわり） */
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ヒーロー内の要素をベールより前に */
+.hero > *{
+  position: relative;
+  z-index: 1;
+}
+
 /* 左上のバッジ（リーリー寄せ） */
 .hero-badge{
   position:absolute;
@@ -397,4 +413,5 @@ img{ display:block; max-width:100%; height:auto; }
 
   .card img,.work-img{ height: 180px; }
 }
+
 
