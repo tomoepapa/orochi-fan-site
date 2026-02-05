@@ -49,10 +49,8 @@
       <p class="hero-lead">この、ふわっと縁起のよさそうな<br>白ヘビ……だれ？</p>
 
       <div class="countdown-box">
-        <p class="label">人気が出るまであと</p>
-        <div class="countdown">00 日 00 時間 00 分 00 秒</div>
-        <p class="note">※現在、進捗はありません。</p>
-      </div>
+  <div class="countdown">エマ＆タルト、バー忍まであと 〇日</div>
+</div>
     </div>
   </header>
 
@@ -174,9 +172,43 @@
      
   <div class="copyright">© Orochi Fan Site</div>
 </footer>
+<script>
+  // 目標日：2026年2月22日（日本時間）
+  const targetDate = new Date("2026-02-22T00:00:00+09:00");
+
+  const countdownEl = document.querySelector(".countdown");
+
+  function updateCountdownDays() {
+    const now = new Date();
+
+    // 今日の0時基準にそろえる（LeeLee方式）
+    const today = new Date(
+      now.getFullYear(),
+      now.getMonth(),
+      now.getDate()
+    );
+
+    const diffTime = targetDate - today;
+    const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+    if (diffDays > 0) {
+      countdownEl.textContent =
+        `エマ＆タルト、バー忍まであと ${diffDays}日`;
+    } else if (diffDays === 0) {
+      countdownEl.textContent =
+        "エマ＆タルト、バー忍は今日！";
+    } else {
+      countdownEl.textContent =
+        "エマ＆タルト、バー忍は終了しました";
+    }
+  }
+
+  updateCountdownDays();
+</script>
 
 </body>
 </html>
+
 
 
 
