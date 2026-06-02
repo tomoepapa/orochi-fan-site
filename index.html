@@ -4,8 +4,22 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>オロチ（from CNP）ファンサイト</title>
-  <meta name="description" content="CNPのオロチを応援するファンサイト。人気が出るまであと（静止）、オロチの秘密、リンク集。" />
+  <title>オロチくんの開運おみくじ | オロチ（from CNP）ファンサイト</title>
+  <meta name="description" content="CNPのオロチくんが、1日1回だけ今日の運勢と開運アクションを授けるファンサイトのミニおみくじです。" />
+  <link rel="canonical" href="https://tomoepapa.github.io/orochi-fan-site/" />
+  <meta property="og:site_name" content="オロチ（from CNP）ファンサイト" />
+  <meta property="og:title" content="オロチくんの開運おみくじ" />
+  <meta property="og:description" content="1日1回、オロチくんから今日の運勢と開運アクションを受け取ろう。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://tomoepapa.github.io/orochi-fan-site/" />
+  <meta property="og:image" content="https://tomoepapa.github.io/orochi-fan-site/assets/ogp.png" />
+  <meta property="og:locale" content="ja_JP" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="オロチくんの開運おみくじ" />
+  <meta name="twitter:description" content="1日1回、オロチくんから今日の運勢と開運アクションを受け取ろう。" />
+  <meta name="twitter:image" content="https://tomoepapa.github.io/orochi-fan-site/assets/ogp.png" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
@@ -25,6 +39,52 @@
       <p class="hero-text fade-in-up delay-300">この、縁起のよさそうな<br>白ヘビ……だれ？</p>
     </div>
   </header>
+
+  <!-- Omikuji Section -->
+  <section class="section omikuji-section" id="tokutsumi-omikuji">
+    <div class="container">
+      <div class="omikuji-app" data-omikuji-app>
+        <div class="omikuji-header">
+          <p class="omikuji-kicker">一日一回</p>
+          <h2 class="omikuji-title">オロチくんの開運おみくじ</h2>
+          <p class="omikuji-subcopy">今日の運は、今日の行動で育てよう。</p>
+        </div>
+
+        <div class="omikuji-character">
+          <img src="assets/orochi_omikuji.png" alt="オロチくん">
+        </div>
+
+        <div class="omikuji-top" data-omikuji-top>
+          <p class="omikuji-description">一日一回、オロチくんが今日の開運アクションを授けます。</p>
+          <button class="omikuji-button" type="button" data-omikuji-draw>今日のおみくじを引く</button>
+        </div>
+
+        <div class="omikuji-result" data-omikuji-result hidden>
+          <div class="fortune-paper">
+            <p class="result-label">本日の運勢</p>
+            <p class="fortune-name" data-omikuji-fortune></p>
+
+            <div class="result-card">
+              <p class="result-label">今日の運カテゴリー</p>
+              <p class="result-value" data-omikuji-category></p>
+            </div>
+
+            <div class="result-card result-card-main">
+              <p class="result-label">今日の開運アクション</p>
+              <p class="result-value" data-omikuji-action></p>
+            </div>
+
+            <div class="result-card">
+              <p class="result-label">オロチコメント</p>
+              <p class="result-value" data-omikuji-comment></p>
+            </div>
+          </div>
+
+          <p class="omikuji-tomorrow-message">明日もオロチくんのおみくじを引きに来てね</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- Profile Section -->
   <section class="section profile" id="profile">

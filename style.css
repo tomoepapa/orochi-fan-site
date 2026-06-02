@@ -412,6 +412,177 @@ img {
   transform: rotate(0deg) scale(1.05);
 }
 
+/* Omikuji Section */
+.omikuji-section {
+  background:
+    radial-gradient(circle at top, rgba(255, 212, 120, 0.35), transparent 32%),
+    linear-gradient(180deg, #fffaf0 0%, #f3e3c4 100%);
+}
+
+.omikuji-app {
+  max-width: 430px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  border: 1px solid #e5c779;
+  border-radius: 28px;
+  background: #fff7e6;
+  box-shadow: 0 18px 40px rgba(61, 45, 31, 0.16);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  scroll-margin-top: 16px;
+}
+
+.omikuji-app::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.45) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.35) 1px, transparent 1px);
+  background-size: 18px 18px;
+  pointer-events: none;
+}
+
+.omikuji-app > * {
+  position: relative;
+  z-index: 1;
+}
+
+.omikuji-kicker {
+  color: #8b5a2b;
+  font-size: 0.8rem;
+  font-weight: 900;
+}
+
+.omikuji-title {
+  margin-top: 0.35rem;
+  color: #2f2924;
+  font-size: clamp(1.85rem, 8vw, 2.35rem);
+  font-weight: 900;
+  line-height: 1.15;
+}
+
+.omikuji-subcopy {
+  margin-top: 0.75rem;
+  color: #c75435;
+  font-weight: 900;
+  line-height: 1.6;
+}
+
+.omikuji-character {
+  width: 168px;
+  height: 168px;
+  margin: 1.4rem auto 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 4px solid #edd38e;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 10px 24px rgba(61, 45, 31, 0.14);
+  overflow: hidden;
+}
+
+.omikuji-character img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 1rem;
+}
+
+.omikuji-description {
+  margin: 0 auto;
+  max-width: 300px;
+  color: #6f5136;
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.8;
+}
+
+.omikuji-button {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+  border: 0;
+  border-radius: 18px;
+  background: #c75435;
+  color: #fff;
+  font-family: var(--font-main);
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 10px 22px rgba(199, 84, 53, 0.24);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.omikuji-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 14px 26px rgba(199, 84, 53, 0.28);
+}
+
+.omikuji-button:disabled {
+  cursor: default;
+  opacity: 0.72;
+  transform: none;
+  box-shadow: none;
+}
+
+.fortune-paper {
+  margin-top: 1rem;
+  padding: 1.25rem;
+  border: 1px solid #ebd09a;
+  border-radius: 22px;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.7);
+}
+
+.result-label {
+  color: #7b5637;
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.fortune-name {
+  margin-top: 0.25rem;
+  color: #c75435;
+  font-size: 3.2rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.result-card {
+  margin-top: 0.9rem;
+  padding: 0.9rem;
+  border-radius: 16px;
+  background: #fff7e6;
+  text-align: left;
+}
+
+.result-card-main {
+  background: #ffecc0;
+}
+
+.result-value {
+  margin-top: 0.25rem;
+  color: #2f2924;
+  font-size: 1rem;
+  font-weight: 900;
+  line-height: 1.7;
+}
+
+.result-card-main .result-value {
+  font-size: 1.2rem;
+}
+
+.omikuji-tomorrow-message {
+  margin-top: 1.2rem;
+  color: #7b5637;
+  font-size: 0.95rem;
+  font-weight: 900;
+  line-height: 1.7;
+}
+
 
 /* Footer */
 .footer {
